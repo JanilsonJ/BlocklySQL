@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../tutorial/imagens/blockly_sql.png">
+    <title>BlocklySQL</title>
+
+    <!-- Estilização da página -->
+    <link rel="stylesheet" href="tutorial.css">
+
+    <!-- Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <span class="navbar-brand mb-0 h1" style="padding: 1vh;">
+                        <a class="nav-link" href="../index.html" style="color: aliceblue;"
+                            title="Página inicial">BlocklySQL</a>
+                    </span>
+                </ul>
+                <ul class="navbar-nav d-flex align-items-center">
+                    <li class="nav-item active text-center">
+                        <a class="nav-link" href="../index.html">
+                            <i class="bi bi-house text-danger"></i> <span class="labelShow">INÍCIO</span>
+                        </a>
+                    </li>
+                    &nbsp;&nbsp;
+                    <li class="nav-item active text-center">
+                        <a class="nav-link" href="../estudos/estudo.html">
+                            <i class="bi bi-pen text-warning"></i> <span class="labelShow">EXERCÍCIOS</span>
+                        </a>
+                    </li>
+                    &nbsp;&nbsp;
+                    <li class="nav-item active text-center">
+                        <a class="nav-link" href="../tutorial/tutorial.html">
+                            <i class="bi bi-info-circle text-info"></i> <span class="labelShow"
+                                style="color: aliceblue;">TUTORIAL</span>
+                        </a>
+                    </li>
+                    &nbsp;&nbsp;
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <a class="blocklyLogo" href="https://developers.google.com/blockly" target="_blank"
+                        title="Blockly Site">
+                        <img class="image-responsive"
+                            src="https://developers.google.com/blockly/images/logos/logo_built_on.png" width="60px">
+                    </a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="comandosSQL align-items-center">
+        <a style="color: rgb(91, 165, 91);" type="button" onclick='scrollToMiddle("createDb")'>CREATE DATABASE</a>
+        <a style="color: rgb(81, 99, 155);" type="button" onclick='scrollToMiddle("createTable")'>CREATE TABLE</a>
+        <a style="color: rgb(147, 91, 165);" type="button" onclick='scrollToMiddle("insertInto")'>INSERT INTO</a>
+        <a style="color: rgb(165, 128, 91);" type="button" onclick='scrollToMiddle("alterTable")'>ALTER TABLE</a>
+        <a style="color: rgb(165, 165, 91);" type="button" onclick='scrollToMiddle("updateTable")'>UPDATE</a>
+        <a style="color: rgb(91, 165, 147);" type="button" onclick='scrollToMiddle("select")'>SELECT</a>
+        <a style="color: rgb(165, 91, 109);" type="button" onclick='scrollToMiddle("dropTable")'>DROP TABLE</a>
+        <a style="color: rgb(165, 91, 91);" type="button" onclick='scrollToMiddle("deleteFrom")'>DELETE FROM</a>
+    </div>
+
+    <div class="container" style="color: aliceblue;">
+        <section class="text-center justify-content-center" style="margin-bottom: 4vh; margin-top: 55px;">
+            <h1>BLOCKLY SQL</h1>
+            <p class="lead">BlocklySQL é uma aplicação web que, a partir da API Blockly, desenvolvida pela Google,
+                auxilia
+                pessoas no aprendizado ou recordação de comandos e mecânicas presentes na linguagem SQL.</p>
+        </section>
+
+        <div class="row">
+            <div class="col">
+                <p style="text-align: justify; text-justify: inter-word;">&nbsp;Com BlocklySQL, o usuário é apresentado
+                    as mecânicas presentes da programação SQL. Essas mecânicas são dispostas em blocos visuais, onde o
+                    usuáro
+                    pode utilizalas para desenvenvolver um banco de dados totalmente funcional.</p>
+
+                <div class="row text-center">
+                    <h5>&nbsp;Os comandos SQL presentes para o usuário são:</h5>
+                    <div class="col">
+                        <h6><strong>CREATE DATABASE</strong></h6>
+                        <h6><strong>CREATE TABLE</strong></h6>
+                        <h6><strong>INSERT INTO</strong></h6>
+                        <h6><strong>ALTER TABLE</strong></h6>
+                    </div>
+                    <div class="col">
+                        <h6><strong>DELETE FROM</strong></h6>
+                        <h6><strong>DROP TABLE</strong></h6>
+                        <h6><strong>UPDATE</strong></h6>
+                        <h6><strong>SELECT</strong></h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col text-center vertical-center" style="font-size: 12px;">
+                <h6>Exemplo de banco</h6>
+
+                <div class="table-responsive" style="white-space:nowrap; border-spacing: 0;">
+                    <table class="table table-primary table-striped table-hover mx-auto w-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">nome</th>
+                                <th scope="col">sexo</th>
+                                <th scope="col">data_de_nascimento</th>
+                                <th scope="col">cidade</th>
+                                <th scope="col">telefone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Anderson Joaquim Lima</td>
+                                <td>M</td>
+                                <td>13/04/1987</td>
+                                <td>Palmas</td>
+                                <td>(63) 2924-7115</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Mariana Gabrielly Ribeiro</td>
+                                <td>F</td>
+                                <td>22/05/1991</td>
+                                <td>Teresina</td>
+                                <td>(86) 3645-6679</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Eduardo Manuel Barboa</td>
+                                <td>M</td>
+                                <td>27/07/1997</td>
+                                <td>Florianópolis</td>
+                                <td>(68) 3983-5955</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Vicente Eduardo Oliver Duarte</td>
+                                <td>M</td>
+                                <td>27/07/1997</td>
+                                <td>Rio Branco</td>
+                                <td>(48) 3726-9771</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Luana Betina da Mata</td>
+                                <td>F</td>
+                                <td>12/06/2001</td>
+                                <td>Araguaína</td>
+                                <td>(63) 2707-2359</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Yuri Fernando Rafael Moreira</td>
+                                <td>M</td>
+                                <td>10/11/1985</td>
+                                <td>Itu</td>
+                                <td>(11) 2600-3600</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="createDb" class="container modulo">
+        <h2 style="background-color: rgba(91, 165, 91);">&nbsp;&nbsp;&nbsp;&nbsp;CREATE DATABASE</h2>
+
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Responsável pelo acesso ou criação de um banco
+                    de dados. Obrigatoriamente o primeiro bloco da pilha e necessário para utilizar qualquer comando SQL
+                    posterior. Deve-se passar o nome do banco a ser acessado.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/create_db.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="createTable" class="container modulo">
+        <h2 style="background-color: rgba(81, 99, 155);">&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE</h2>
+
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Cria uma tabela. Possuí um campo de seleção
+                    que pode ser vazio ou IF EXISTS, além de três botões que facilitam a adição dos blocos de variaveis,
+                    PRIMARY KEY e FOREIGN KEY. Deve-se passar o nome desejado para a tabela.
+                </p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/create_table.png" alt="">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(81, 99, 155);">
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Bloco responsável por adicionar novos dados ao
+                    bloco CREATE TABLE. Deve-se informar o nome da variável, tipo e possível atributo.
+                </p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/create_table2.png" alt="">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(81, 99, 155);">
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Bloco responsável por definir uma variável
+                    como Primary Key ao bloco CREATE TABLE. Deve-se informar a variável desejada.
+                </p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/create_table3.png" alt="">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(81, 99, 155);">
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Bloco responsável por definir uma variável
+                    como Foreign Key ao bloco CREATE TABLE. Deve-se informar a variável desejada, a tabela a ser
+                    referenciada e a variável relacionada.
+                </p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/create_table4.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="alterTable" class="container modulo">
+        <h2 style="background-color: rgb(165, 128, 91);">&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE</h2>
+        
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Adiciona ou remove uma variável de uma tabela.
+                    Deve-se passar o nome da tabela, selecionar a ação desejada, o nome da variável a ser adicionada e
+                    seu tipo.</p>
+                </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/alter_table.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="dropTable" class="container modulo">
+        <h2 style="background-color: rgb(165, 91, 109);">&nbsp;&nbsp;&nbsp;&nbsp;DROP TABLE</h2>
+
+        <div class="row">
+            <div class="col col-lg-8 ">
+                <p style="text-align: justify; text-justify: inter-word;">Deleta totalmente uma tabela. Possuí um
+                    campo de seleção que pode ser vazio ou IF EXISTS. Deve-se passar o nome da tabela.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/drop_table.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="insertInto" class="container modulo">
+        <h2 style="background-color: rgba(147, 91, 165);">&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO</h2>
+
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Insere novos dados a uma tabela. Possui dois
+                    botões que facilitam a adição dos blocos de valor e valor padrão. Deve-se passar o nome da
+                    tabela em que serão adicionados os dados e caso necessário a ordem ou quais dados serão inseridos.
+                </p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/insert_into.png" alt="">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(147, 91, 165);">
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Bloco responsável por inserir novos dados a
+                    uma tabela no bloco INSERT INTO. Deve-se passar o valor do dado.
+                </p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/insert_into2.png" alt="">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(147, 91, 165);">
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Bloco responsável por inserir dados padrões a
+                    uma tabela no bloco INSERT INTO. Deve-se selecionar o valor do dado.
+                </p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/insert_into3.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div id="updateTable" class="container modulo">
+        <h2 style="background-color: rgb(165, 165, 91);">&nbsp;&nbsp;&nbsp;&nbsp;UPDATE</h2>
+
+        <div class="row">
+            <div class="col col-lg-8">
+                <p style="text-align: justify; text-justify: inter-word;">Altera um ou mais dados de uma tabela. Possui
+                    um botão que facilita a adição do bloco de variáveis. Deve-se passar o nome da tabela e a condição
+                    para a alteração do dado.</p>
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img src="./imagens/update_table.png" alt="">
+                </div>
+            </div>
+            <hr width="100%" size="8" style="background-color: rgb(165, 165, 91);">
+            <div class="row">
+                <div class="col col-lg-8 ">
+                    <p style="text-align: justify; text-justify: inter-word;">Bloco responsável por determinar qual variável
+                    terá o valor alterado e seu novo valor no bloco UPDATE. Deve-se passar o nome da variável e
+                    seu novo valor.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/update_table2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="select" class="container modulo">
+        <h2 style="background-color: rgb(91, 165, 147);">&nbsp;&nbsp;&nbsp;&nbsp;SELECT</h2>
+
+        <div class="row">
+            <p style="text-align: justify; text-justify: inter-word;">Seleciona uma tabela para apresentação de
+                seus dados. Possuí um campo de seleção que pode ser vazio ou DISTINCT, além de um botão, que
+                quando apertado, identifica a opção selecionada e adiciona o bloco correnspondente. O bloco possuí 4 varaiações que são: </p>
+        </div>
+        <div class="col d-flex align-items-center justify-content-center text-center vertical-center">
+            <div class="row">
+                <div class="col">
+                    <p>Comando SELECT simples para visualização de tabelas.</p>
+                    <img src="./imagens/select2.png">
+                </div>
+                <div class="col">
+                    <p>Comando SELECT com junção de tabelas.</p>
+                    <img src="./imagens/select3.png">
+                </div>
+                <div class="col">
+                    <p>Comando SELECT com restrição na apresentação de dados.</p>
+                    <img src="./imagens/select4.png">
+                </div>
+                <div class="col">
+                    <p>Comando SELECT com todas as ações disponiveis.</p>
+                    <img src="./imagens/select1.png">
+                </div>
+            </div>
+        </div>
+        
+        <hr width="100%" size="8" style="background-color: rgb(91, 165, 147);">
+        <div class="row">
+            <div class="col col-lg-8 ">
+                <p style="text-align: justify; text-justify: inter-word;">Restringe quais dados serão apresentados ao
+                    realizar uma pesquisa no bloco SELECT. Deve-se informar os dados que serão pesquisados ou se
+                    apresentara todos os dados.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/select_coluna.png">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(91, 165, 147);">
+        <div class="row">
+            <div class="col col-lg-8 ">
+                <p style="text-align: justify; text-justify: inter-word;">Determina a tabela que será pesquisada no
+                    bloco SELECT. Deve-se informar o nome da tabela desejada.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/select_tabela.png">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(91, 165, 147);">
+        <div class="row">
+            <div class="col col-lg-8 ">
+                <p style="text-align: justify; text-justify: inter-word;">Realiza uma junção de tabelas ao pesquisar no
+                    bloco SELECT. Pode ser definida entre inner, left, right e full join. Deve-se informar a qual tabela
+                    terá a união e os dados semelhantes as tabelas.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/select_interacao.png">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(91, 165, 147);">
+        <div class="row">
+            <div class="col col-lg-8 ">
+                <p style="text-align: justify; text-justify: inter-word;">Cria uma restrição de pesquisa no bloco
+                    SELECT. Deve-se informar o nome da variável, o operador e sua restrição.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/select_restricao.png">
+            </div>
+        </div>
+        <hr width="100%" size="8" style="background-color: rgb(91, 165, 147);">
+        <div class="row">
+            <div class="col col-lg-8 ">
+                <p style="text-align: justify; text-justify: inter-word;">Altera a ordem de apresentação dos dados do
+                    bloco SELECT. Deve-se informar a variável e sua ordem de apresentação.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/select_ordenacao.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteFrom" class="container modulo">
+        <h2 style="background-color: rgb(165, 91, 91);">&nbsp;&nbsp;&nbsp;&nbsp;DELETE FROM</h2>
+
+        <div class="row">
+            <div class="col col-lg-8 ">
+                <p style="text-align: justify; text-justify: inter-word;">Excluí um dado inserido a uma tabela.
+                    Deve-se passar o nome da tabela e a restrição de exclusão do dado.</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <img src="./imagens/delete_from.png">
+            </div>
+        </div>
+    </div>
+
+    <br>
+</body>
+
+<script>
+    function scrollToMiddle(id) {
+        document.getElementById(id).scrollIntoView({
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center'
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../tutorial/imagens/blockly_sql.png">
+    <title>Primeiros Passos</title>
+
+    <!-- Estilização da página -->
+    <link rel="stylesheet" media="screen and (min-width: 860px)" href="../widescreen.css">
+    <link rel="stylesheet" media="screen and (max-width: 860px)" href="../smallscreen.css">
+
+    <!-- Uso da biblioteca Blockly -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+
+    <!-- Blocos Personalisados -->
+    <script src="../customBlocks.js"></script>
+
+    <!-- Código Personalisados -->
+    <script src="../colorirCodigo.js"></script>
+
+    <!-- Gerador MySQL -->
+    <script src="https://unpkg.com/blockly/lua_compressed.js"></script>
+    <script src="../../../Blocos/geradorMySQL.js"></script>
+
+    <!-- Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <!-- Avisos - Popup -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <ul class="navbar-nav d-flex align-items-center">
+                    <span class="navbar-brand mb-0 h1" style="padding: 1vh;">
+                        <a class="nav-link" href="../../estudo.html" style="color: aliceblue;"
+                            title="Voltar para estudos">
+                            <i class="bi bi-arrow-bar-left"></i> Exercícios</a>
+                    </span>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <a class="blocklyLogo" href="https://developers.google.com/blockly" target="_blank"
+                        title="Blockly Site">
+                        <img class="image-responsive"
+                            src="https://developers.google.com/blockly/images/logos/logo_built_on.png" width="60px">
+                    </a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container card text-center bg-dark">
+        <div class="card-header">
+            EXERCÍCIO
+        </div>
+        <div class="card-body">
+            Analise o código e corrija o erro presente na
+            <span style="color: rgb(209, 209, 157);">ORDEM</span>
+            dos blocos.
+        </div>
+    </div>
+
+    <div id="blocklyDiv"></div>
+
+    <pre id="Codigo" style="resize: none;" readonly></pre>
+
+    <div class="divBotao">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+            onclick="verificarResposta()"> Enviar resposta
+        </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="respostaErrada" class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Resposta não aceita! <span style="color: red;"><i
+                                class="bi bi-emoji-dizzy-fill"></i></span></h4>
+                    <button type="button" class="btn btn-danger close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align: justify; text-justify: inter-word;">
+                    Correção não realizada ou código com erros persistentes.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+            <div id="respostaCorreta" class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Resposta correta! <span style="color: green;"><i
+                                class="bi bi-emoji-smile-fill"></i></span></h4>
+                    <button type="button" class="btn btn-danger close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align: justify; text-justify: inter-word;">
+                    <p class="text-center">EXPLICAÇÃO</p>
+                    SQL sempre executará os comandos verticalmente(de cima para baixo). Sendo assim não é possível
+                    adicionar dados a uma tabela caso a tabela não esteja criada no banco.
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-success" href="../parte2/parte2.html">
+                        Proximo exercício.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<xml id="xml1" style="display: none">
+    <block type="start_sql" x="20" y="100">
+        <field name="db_name">database</field>
+        <next>
+            <block type="insert_table">
+                <field name="table_name">pessoa</field>
+                <statement name="insert_var">
+                    <block type="insert_start">
+                        <value name="insert_var">
+                            <block type="insert_var_default">
+                                <value name="insert_var">
+                                    <block type="insert_var">
+                                        <field name="var_input">Anderson Joaquim Lima</field>
+                                        <value name="insert_var">
+                                            <block type="insert_var">
+                                                <field name="var_input">32</field>
+                                            </block>
+                                        </value>
+                                    </block>
+                                </value>
+                            </block>
+                        </value>
+                    </block>
+                </statement>
+                <next>
+                    <block type="create_table">
+                        <field name="table_name">pessoa</field>
+                        <statement name="table_var">
+                            <block type="table_var">
+                                <field name="var_name">id</field>
+                                <field name="type">INTEGER</field>
+                                <field name="opcao"> NOT NULL AUTO_INCREMENT</field>
+                                <next>
+                                    <block type="table_var">
+                                        <next>
+                                            <block type="table_var">
+                                                <field name="var_name">idade</field>
+                                                <field name="type">INTEGER</field>
+                                                <next>
+                                                    <block type="table_var_pk">
+                                                        <field name="var_name">id</field>
+                                                    </block>
+                                                </next>
+                                            </block>
+                                        </next>
+                                    </block>
+                                </next>
+                            </block>
+                        </statement>
+                    </block>
+                </next>
+            </block>
+        </next>
+    </block>
+</xml>
+
+<script src="./parte1.js"></script>
+
+</html>

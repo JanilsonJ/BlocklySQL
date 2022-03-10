@@ -1,0 +1,287 @@
+.navbar {
+    height: 30px;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    font-size: 14px !important;
+}
+
+.navbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row !important;
+}
+
+@media screen and (max-width: 680px) {
+    .labelShow {
+        display: none;
+    }
+}
+/***********************************************************************************************/
+/* BODY */
+body {
+    font-family: FreeMono, monospace !important;
+    line-height: 1.4 !important;
+
+    background-image: radial-gradient(rgb(0, 0, 0), rgb(31, 48, 73));
+    background-size: 100% 200vh;
+}
+
+.textoApresentativo {
+    text-align: center;
+    font-size: 3.2vw; 
+    color: aliceblue; 
+    margin-top: 7px;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5px;
+    margin-left: 1%;
+    width: 98%;
+
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+}
+
+.options::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+select{
+    border-radius: 8px;
+    padding: 2px;
+    font-size: 3vw !important;
+}
+
+.btn {
+    background-color: rgba(63, 61, 61, 0.658) !important;
+    color: aliceblue !important; 
+    font-size: 12px !important;
+
+    text-align: center !important;
+    
+    margin-inline: 1vh;
+    margin: 5px;
+}
+/***********************************************************************************************/
+/* Workspace e seus adicionais*/
+#blocklyDiv {
+    height: 400px;
+    width: 98%;
+
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 1px rgba(255, 255, 255, 0.5);
+
+    margin-left: 1%;
+}
+
+/***********************************************************************************************/
+/* Código e seus adicionais*/
+.form-select {
+    max-width: 50% !important;
+}
+
+#Codigo {
+    font: Consolas !important;
+    font-size: 12px;
+    font-weight: 700 !important;
+    padding: 5px;
+
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 2px rgba(255, 255, 255, 0.5);
+    
+    height: 350px;
+    width: 98%;
+
+    margin-top: 5px;
+    margin-left: 1%;
+
+    overflow: auto;
+}
+
+.codigoLigthTheme {
+    background-color: rgb(230, 230, 230);
+    color: black;
+}
+
+.codigoDarkTheme {
+    background-color: rgb(25, 25, 25);
+    color: aliceblue;
+}
+
+/***********************************************************************************************/
+/* Apresentação do Select */
+#divSelect {
+    text-align: center;
+    
+    margin-top: 5px;
+    width: 98%;
+    margin-left: 1%;
+}
+
+#tabela {
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: auto;
+    white-space:nowrap;
+    
+    width: 98% !important;
+    max-height: 50vh;
+
+    margin-top: 5px;
+    margin-left: 1%;
+}
+
+/***********************************************************************************************/
+/* Alertas */
+#alerta1 {
+    position: fixed !important; 
+    bottom: 5px; 
+    right: 10px; 
+    z-index:9999; 
+
+    text-align: justify; 
+    text-justify: inter-word;
+}
+
+#alerta2 {
+    position: fixed !important; 
+    bottom: 5px; 
+    right: 10px; 
+    z-index:9999; 
+
+    text-align: justify; 
+    text-justify: inter-word;
+}
+
+#alerta3 {
+    z-index:9999; 
+
+    text-align: justify; 
+    text-justify: inter-word;
+
+    position: fixed !important; 
+    top: 35px;
+}
+
+/******************************************************************************************************************************************************************** */
+/*PERSONALIZAÇÃO WORKSPACE*/
+:root {
+    --fill: rgb(230, 230, 230);
+}
+
+.blocklyMainBackground {
+    fill: var(--fill) !important
+}
+
+.blocklySvg, .geras-renderer.classic-theme{
+    border-radius: 8px;
+}
+
+.blocklyTreeLabel {
+    font-size: 12px;
+}
+
+.blocklyToolboxCategory {
+    padding: .5em;
+}
+
+.blocklyTreeRow {
+    border-radius: 4px;
+}
+
+.blocklyToolboxDiv {
+    background-image: radial-gradient(rgba(45, 45, 45, 0.8), rgb(45, 45, 45));
+    color: aliceblue;
+}
+
+.blocklyFlyoutBackground{
+    fill: rgb(45, 45, 45);
+    color: aliceblue;
+}
+
+.geras-renderer.classic-theme .blocklyFlyoutLabelText {
+    fill: aliceblue;
+}
+
+/******************************************************************************************************************************************************************** */
+/*SCROLLBARS*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    width: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0, 0);  
+    border: solid 4px transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border: solid 4px transparent;
+    background: rgb(205, 205, 205);
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(180, 180, 180); 
+}
+
+/******************************************************************************************************************************************************************** */
+/*CORES CÓDIGO*/
+.color_create_db{
+    color: rgb(91, 165, 91);
+}
+
+.color_create_table{
+    color: rgb(81, 99, 155);
+}
+
+.color_var{
+    color: rgb(67, 190, 199);
+}
+
+.color_insert{
+    color: rgb(147, 91, 165);
+}
+
+.color_update{
+    color: rgb(165, 165, 91);
+}
+
+.color_alter_table{
+    color: rgb(165, 128, 91);
+}
+
+.color_delete_from{
+    color: rgb(165, 91, 91);
+}
+
+.color_drop_table{
+    color: rgb(165, 91, 109);
+}
+
+.color_select{
+    color: rgb(91, 165, 147);
+}
+
+/******************************************************************************************************************************************************************** */

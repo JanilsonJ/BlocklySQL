@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../tutorial/imagens/blockly_sql.png">
+    <title>Primeiros Passos</title>
+
+    <!-- Estilização da página -->
+    <link rel="stylesheet" media="screen and (min-width: 860px)" href="../widescreen.css">
+    <link rel="stylesheet" media="screen and (max-width: 860px)" href="../smallscreen.css">
+
+    <!-- Uso da biblioteca Blockly -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+
+    <!-- Blocos Personalisados -->
+    <script src="../customBlocks.js"></script>
+
+    <!-- Código Personalisados -->
+    <script src="../colorirCodigo.js"></script>
+
+    <!-- Gerador MySQL -->
+    <script src="https://unpkg.com/blockly/lua_compressed.js"></script>
+    <script src="../../../Blocos/geradorMySQL.js"></script>
+
+    <!-- Gerador Web SQL -->
+    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    <script src="../geradorWebSQL.js"></script>
+
+    <!-- Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <!-- Avisos - Popup -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <ul class="navbar-nav d-flex align-items-center">
+                    <span class="navbar-brand mb-0 h1" style="padding: 1vh;">
+                        <a class="nav-link" href="../../estudo.html" style="color: aliceblue;"
+                            title="Voltar para estudos">
+                            <i class="bi bi-arrow-bar-left"></i> Exercícios</a>
+                    </span>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <a class="blocklyLogo" href="https://developers.google.com/blockly" target="_blank"
+                        title="Blockly Site">
+                        <img class="image-responsive"
+                            src="https://developers.google.com/blockly/images/logos/logo_built_on.png" width="60px">
+                    </a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container card text-center bg-dark">
+        <div class="card-header">
+            EXERCÍCIO
+        </div>
+        <div class="card-body">
+            Analise os bancos de dados abaixo e crie um comando <span class="color_select">SELECT</span> que relacione as variáveis 
+            <span class="color_insert">id_pessoa</span> com <span class="color_insert">id_comprador</span> e 
+            apresente os dados da relação.
+        </div>
+        
+        <div class="row">
+            <div class="table-responsive col-md-6" style="display: flex;">
+                <table id="tabelaInformativa" class="table table-light table-striped table-hover mx-auto w-auto">
+                    <thead>
+                        <th colspan="5">pessoa</th>
+                        <tr>
+                            <th scope="col">id_pessoa</th>
+                            <th scope="col">nome</th>
+                            <th scope="col">cpf</th>
+                            <th scope="col">idade</th>
+                            <th scope="col">telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Anderson Joaquim Lima</td>
+                            <td>109.419.057-80</td>
+                            <td>32</td>
+                            <td>(63) 2924-7115</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Mariana Gabrielly Ribeiro</td>
+                            <td>746.328.138-85</td>
+                            <td>27</td>
+                            <td>(86) 3645-6679</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Eduardo Manuel Barboa</td>
+                            <td>230.083.525-88</td>
+                            <td>16</td>
+                            <td>(68) 3983-5955</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive col-md-6">
+                <table id="tabelaInformativa" class="table table-light table-striped table-hover mx-auto w-auto">
+                    <thead>
+                        <th colspan="4">pedido</th>
+                        <tr>
+                            <th scope="col">id_pedido</th>
+                            <th scope="col">id_comprador</th>
+                            <th scope="col">valor_compra</th>
+                            <th scope="col">data_compra</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>2</td>
+                            <td>76.8</td>
+                            <td>2021-09-28 21:3:25</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>1</td>
+                            <td>124.9</td>
+                            <td>2021-08-25 16:4:49</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>2</td>
+                            <td>95</td>
+                            <td>2021-09-29 16:1:20</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>3</td>
+                            <td>49.9</td>
+                            <td>2021-09-05 14:5:31</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="blocklyDiv"></div>
+    
+    <div id="tabela" style="color: aliceblue;">
+        <p>Aprensentação do comando <span class="color_select">SELECT</span></p>
+        <div class="col table-responsive">
+            <table id="tabelaSelect" class="table table-light table-striped table-hover mx-auto w-auto"> </table>
+        </div>
+        <div class="col table-responsive" style="display: none;">
+            <table id="tabelaSelect2" class="table table-light table-striped table-hover mx-auto w-auto"> </table>
+        </div>
+    </div>
+
+    <pre id="Codigo" style="resize: none;" readonly></pre>
+
+    <div class="divBotao">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+            onclick="verificarResposta()"> Enviar resposta
+        </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="respostaErrada" class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Resposta não aceita! <span style="color: red;"><i
+                                class="bi bi-emoji-dizzy-fill"></i></span></h4>
+                    <button type="button" class="btn btn-danger close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align: justify; text-justify: inter-word;">
+                    Tabela não aceita.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+            <div id="respostaCorreta" class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Resposta correta! <span style="color: green;"><i
+                                class="bi bi-emoji-smile-fill"></i></span></h4>
+                    <button type="button" class="btn btn-danger close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align: justify; text-justify: inter-word;">
+                    Tabela aceita!
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-success" href="../parte5/parte5.html">
+                        Proximo exercício.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<xml id="xml1" style="display: none">
+    <block type="select" x="20" y="20"></block>
+</xml>
+
+<script src="./parte4.js"></script>
+
+</html>
