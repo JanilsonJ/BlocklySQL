@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/imagens/blockly_sql.png">
+    <title>BlocklySQL | Instruções</title>
+
+    <!-- Estilização da página -->
+    <link rel="stylesheet" href="instrucoes.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/cabecalho.css">
+    <link rel="stylesheet" href="../assets/css/corpo.css">
+    <link rel="stylesheet" href="../assets/css/cor-codigo.css">
+    <link rel="stylesheet" href="../assets/css/cor-background.css">
+
+    <!-- Google Font - Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+
+<body>
+    <header class="menu">
+        <a class="menu__nome-site" href="../index.html" title="Página inicial">BlocklySQL</a>
+        
+        <nav class="menu__items">
+            <a class="menu__item" href="../index.html">
+                <span class="icone-casa material-icons-outlined">home</span>
+                <p class="menu-texto">Início</p>
+            </a>
+                
+            <a class="menu__item" href="../estudos/estudo.html">
+                <span class="icone-exercicio material-icons-outlined">edit_note</span>
+                <p class="menu-texto">Exercícios</p>
+                
+            </a>
+            
+            <a class="menu__item ativo" href="instrucoes.html">
+                <span class="icone-ajuda material-icons-outlined">info</span>
+                <p class="menu-texto">Instruções</p>
+            </a>
+        </nav>
+
+        <a href="https://developers.google.com/blockly" target="_blank" title="Blockly Site">
+            <img class="menu__logo-blockly" src="../assets/imagens/logo_blockly.png">
+        </a>
+    </header>
+
+    <main class="corpo">
+        <section class="atalho-blocos">
+
+            <div class="atalho-blocos__conteudo">
+                <p id="menuCreateDB" class="atalho-blocos__botao color_create_db">Create DataBase</p>
+                <p id="menuCreateTable" class="atalho-blocos__botao color_create_table">Create Table</p>
+                <p id="menuAlter" class="atalho-blocos__botao color_alter_table">Alter Table</p>
+                <p id="menuDrop" class="atalho-blocos__botao color_drop_table">Drop Table</p>
+                <p id="menuInsert" class="atalho-blocos__botao color_insert">Insert Into</p>
+                <p id="menuUpdate" class="atalho-blocos__botao color_update">Update</p>
+                <p id="menuSelect" class="atalho-blocos__botao color_select">Select</p>
+                <p id="menuDelete" class="atalho-blocos__botao color_delete_from">Delete From</p>
+            </div>
+        </section>
+
+        <section class="conteudo">
+            <div id="CreateDB" class="cartao">
+                <div class="cartao__cabecalho bg_create_db">
+                    <h3 class="cartao__cabecalho__titulo">Create Database</h3>
+                    <p class="cartao__cabecalho__subtitulo">Cria um novo banco de dados SQL</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Obrigatoriamente o primeiro bloco da pilha. Conecta-se 
+                        ao banco de dados informado. Todos o blocos conectados a esse realizarão suas ações neste banco.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/create_db.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Novo cartão -->
+            <div id="CreateTable" class="cartao">
+                <div class="cartao__cabecalho bg_create_table">
+                    <h3 class="cartao__cabecalho__titulo">Create Table</h3>
+                    <p class="cartao__cabecalho__subtitulo">Cria uma nova tabela ao banco de dados.</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela criação de uma nova tabela no banco. 
+                        Nele deve-se informa o nome da tabela e suas variáveis(colunas). Para a adição das variáveis o 
+                        bloco possuí 1 botão para a adição da mesma e mais 2 botões para a definição das características 
+                        PRIMARY KEY e FOREIGN KEY.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/create_table.png" alt="">
+                    </div>
+                </div>
+                <p class="cartao__conteudo__divisor color_create_table">======= Blocos Relacionados =======</p>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela adição de novas variáveis(colunas) ao 
+                        bloco Create Table. Deve-se informar o nome da variável, seu tipo e atributo.
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/create_table2.png" alt="">
+                    </div>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela definição da característica PRIMARY KEY 
+                        a uma variável. Deve-se informar o nome da variável já definida no bloco.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/create_table3.png" alt="">
+                    </div>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela definição da característica FOREIGN KEY 
+                        a uma variável. Deve-se informar o nome da variável já definida no bloco, a tabela a ser 
+                        referenciada e o identificador a ser usado na relação.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/create_table4.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Novo cartão -->
+            <div id="Alter" class="cartao">
+                <div class="cartao__cabecalho bg_alter_table">
+                    <h3 class="cartao__cabecalho__titulo">Alter Table</h3>
+                    <p class="cartao__cabecalho__subtitulo">Adiciona, exclui ou modifica colunas em uma tabela existente.</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela alteração de uma tabela. Deve-se informar
+                        o nome da tabela desejada, ação a ser realizada, nome da variável a ser modificada e o tipo da 
+                        variável caso necessário.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/alter_table.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Novo cartão -->
+            <div id="Drop" class="cartao">
+                <div class="cartao__cabecalho bg_drop_table">
+                    <h3 class="cartao__cabecalho__titulo">Drop Table</h3>
+                    <p class="cartao__cabecalho__subtitulo">Deleta uma tabela existente em um banco de dados.</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela exclusão de uma tabela no banco de dados.
+                        Deve-se informa o nome da tabela desejada.
+                    </p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/drop_table.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Novo cartão -->
+            <div id="Insert" class="cartao">
+                <div class="cartao__cabecalho bg_insert">
+                    <h3 class="cartao__cabecalho__titulo">Insert Into</h3>
+                    <p class="cartao__cabecalho__subtitulo">Adiciona novos registros em uma tabela.</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela inserção de novos dados a um banco. Neste
+                        bloco deve-se passar o nome da tabela em que serão adicionados os dados e caso desejado a ordem ou 
+                        quais os dados a serem inseridos. Possuí um botão que adiciona um campo para a inserção do valor 
+                        desejado e outro botão para inserir algum outro valor padrão.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/insert_into.png" alt="">
+                    </div>
+                </div>
+                <p class="cartao__conteudo__divisor color_insert">======= Blocos Relacionados =======</p>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável por inserir novos dados a uma 
+                        tabela no bloco INSERT INTO. Deve-se passar o valor do dado.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/insert_into2.png" alt="">
+                    </div>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável por inserir dados padrões a uma 
+                        tabela no bloco INSERT INTO. Deve-se selecionar o valor do dado.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/insert_into3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Novo cartão -->
+            <div id="Update" class="cartao">
+                <div class="cartao__cabecalho bg_update">
+                    <h3 class="cartao__cabecalho__titulo">Update</h3>
+                    <p class="cartao__cabecalho__subtitulo">Modifica os registros existentes em uma tabela.</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela alteração de um dado existentes
+                        em uma tabela. Deve-se informar o nome da tabela em que o dado esta presente e a condição de 
+                        alteração. Possuí um botão para a adição dos blocos de variáveis.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/update_table.png" alt="">
+                    </div>
+                </div>
+                <p class="cartao__conteudo__divisor color_update">======= Blocos Relacionados =======</p>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável por determinar qual variável terá 
+                        o valor alterado e seu novo valor no bloco UPDATE. Deve-se passar o nome da variável e 
+                        seu novo valor.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/update_table2.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Novo cartão -->
+            <div id="Select" class="cartao">
+                <div class="cartao__cabecalho bg_select">
+                    <h3 class="cartao__cabecalho__titulo">Select</h3>
+                    <p class="cartao__cabecalho__subtitulo">Seleciona os dados de um banco de dados</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável pela seleção de dados em uma tabela. 
+                        Possuí um campo de seleção e um botão que adiciona o bloco correnspondente ao campo.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/select1.png" alt="">
+                    </div>
+                </div>
+                <p class="cartao__conteudo__divisor color_select">======= Blocos Relacionados =======</p>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Restringe quais dados serão apresentados ao realizar uma 
+                        pesquisa no bloco SELECT. Deve-se informar os dados que serão pesquisados ou se apresentara
+                        todos os dados.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/select_coluna.png" alt="">
+                    </div>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Determina a tabela que será pesquisada no bloco SELECT. 
+                        Deve-se informar o nome da tabela desejada.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/select_tabela.png" alt="">
+                    </div>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Realiza uma junção de tabelas ao pesquisar no bloco SELECT. 
+                        Pode ser definida entre inner, left, right e full join. Deve-se informar a qual tabela terá a 
+                        união e os dados semelhantes as tabelas.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/select_interacao.png" alt="">
+                    </div>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Cria uma restrição de pesquisa no bloco SELECT. Deve-se informar 
+                        o nome da variável, o operador e sua restrição.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/select_restricao.png" alt="">
+                    </div>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Altera a ordem de apresentação dos dados do bloco SELECT. 
+                        Deve-se informar a variável e sua ordem de apresentação.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/select_ordenacao.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Novo cartão -->
+            <div id="Delete" class="cartao">
+                <div class="cartao__cabecalho bg_delete_from">
+                    <h3 class="cartao__cabecalho__titulo">Delete From</h3>
+                    <p class="cartao__cabecalho__subtitulo">Deleta registros existentes em uma tabela.</p>
+                </div>
+                <div class="cartao__conteudo">
+                    <p class="cartao__conteudo__descricao">Bloco responsável por excluir um dado inserido a uma tabela. Deve-se passar o nome da tabela e a restrição de exclusão do dado.</p>
+                    <div class="cartao__conteudo__imagem">
+                        <img src="../assets/imagens/delete_from.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script>
+    document.getElementById('menuCreateDB').addEventListener('click', () => {scrollToMiddle('CreateDB')})
+    document.getElementById('menuCreateTable').addEventListener('click', () => {scrollToMiddle('CreateTable')})
+    document.getElementById('menuInsert').addEventListener('click', () => {scrollToMiddle('Insert')})
+    document.getElementById('menuAlter').addEventListener('click', () => {scrollToMiddle('Alter')})
+    document.getElementById('menuDrop').addEventListener('click', () => {scrollToMiddle('Drop')})
+    document.getElementById('menuSelect').addEventListener('click', () => {scrollToMiddle('Select')})
+    document.getElementById('menuDelete').addEventListener('click', () => {scrollToMiddle('Delete')})
+    document.getElementById('menuUpdate').addEventListener('click', () => {scrollToMiddle('Update')})
+    
+
+    function scrollToMiddle(id) {
+        document.getElementById(id).scrollIntoView({
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center'
+        });
+    }
+</script>
+
+</html>

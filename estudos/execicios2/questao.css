@@ -1,0 +1,445 @@
+/******************************************************************************************************************************************************************** */
+/* MENU */
+
+.menu__voltar {
+    display: flex;
+}
+
+.menu__voltar-icone {
+    color: #FDFDFD
+}
+
+/******************************************************************************************************************************************************************** */
+/* CORPO */
+
+.corpo {
+    font-family: 'Montserrat', sans-serif;
+    color: #FDFDFD;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: calc(100vh - 30px);
+
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 150px 100px 100px 200px 100px;
+}
+
+/******************************************************************************************************************************************************************** */
+/* CARD */
+
+.cartao {
+    background-color: rgb(82, 82, 87);
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+
+    width: 80%;
+
+    border-radius: 10px;
+
+    grid-column: span 2;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.cartao__cabecalho {
+    background-color: rgb(226, 151, 38);
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    
+    color: #222222;
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    height: 40px;
+
+}
+
+.cartao__cabecalho-titulo {
+    text-align: center;
+    align-self: center;
+    
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.cartao__corpo {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 1.3rem;
+
+    height: calc(100% - 40px);
+
+    text-align: center;
+    align-self: center;
+}
+
+.cartao-objetivo {
+    text-align: center;
+    align-self: center;
+    
+    text-shadow: 6px 4px 4px #222222;
+    
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/***********************************************************************************************/ 
+/* Área Blockly */
+
+.blocklyDiv {
+    width: 90%;
+    height: 90%;
+
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 3px rgba(255, 255, 255, 0.5);
+    
+    justify-self: center;
+    align-self: center;
+}
+
+.blocklyMainBackground {
+    fill: rgb(29, 37, 51) !important;
+}
+
+.blocklySvg, .geras-renderer.classic-theme{
+    border-radius: 8px;
+}
+
+.geras-renderer.classic-theme .blocklyFlyoutLabelText {
+    fill: aliceblue;
+}
+
+/***********************************************************************************************/ 
+/* Área de Código */
+
+.codigo {
+    grid-row: 3;
+    grid-column: 1;
+
+    width: 90%;
+    height: 90%;
+
+    background-color: rgb(29, 37, 51);
+    
+    font-family: Consolas, monaco, monospace;
+    font-weight: bolder;
+    font-size: 12px;
+
+    padding: 20px;
+    line-height: 1.2;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 2px rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+
+    overflow: auto;
+
+    justify-self: center;
+    align-self: center;
+
+    resize: none;
+}
+
+/***********************************************************************************************/ 
+/* BOTÃO */
+
+.botao_enviar-resposta {
+    grid-row: 5;
+    grid-column: span 2;
+
+    background-color: #2a7a3e;
+    color: #FDFDFD;
+    
+    width: 300px;
+    height: 50px;
+
+    box-shadow: 0px 5px 4px -1px rgba(255, 255, 255, 0.5);
+
+    border-radius: 10px;
+
+    padding: 0.3rem;
+    box-sizing: border-box;
+
+    transition: 0.5s;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.botao_enviar-resposta:hover {
+    cursor: pointer;
+    background-color: #3aad57;
+}
+
+/***********************************************************************************************/ 
+/* ALERTAS */
+
+.alerta {
+    box-shadow: 0px 0px 8px 1px rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    
+    padding: .3rem;
+    box-sizing: border-box;
+
+    position: fixed; 
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 1s;
+
+    right: -1000px;
+}
+
+.alerta-aviso {
+    background-color: #fff3cd;
+    color: #664d03;
+
+    width: 500px;
+    bottom: 20px;
+}
+
+.alerta__mensagem {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    align-self: center;
+    text-align: center;
+}
+
+.alerta__icone {
+    margin-left: 10px;
+}
+
+.alerta__fecha {
+    color: #FDFDFD;
+    background-color: transparent;
+    color: rgba(145, 36, 36, 0.788);
+    transition: 0.5s;
+
+    display: flex;
+
+    border-radius: 25%;
+    
+    margin-right: 10px;
+}
+
+.alerta__fecha:hover{
+    color: rgb(145, 36, 36);
+    cursor: pointer;
+}
+
+/***********************************************************************************************/ 
+/* CARD - Resposta */
+
+.background {
+    position: fixed;
+    top: 30px;
+    z-index: 9999;
+
+    background-color: #00000081;
+
+    width: 100%;
+    height: calc(100% - 30px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    right: -100vw;
+
+    transition: .3s;
+}
+
+.cartao-resposta {
+    font-family: FreeMono, monospace;
+
+    position: relative;
+    width: 40%;
+
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 0px 0px 4px 5px rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-rows: 60px auto 60px;
+}
+
+.cartao-resposta__cabecalho {
+    color: #1d6e44;
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartao-resposta__corpo {
+    background-color: #c9e7d8;
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-align: justify;
+    
+    padding: 10px;
+    box-sizing: border-box;
+
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cartao-resposta__rodape {
+    color: #FDFDFD;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.botao_proximo-exercicio {
+    background-color: #2a7a3e;
+    color: #FDFDFD;
+
+    box-shadow: 0px 5px 4px -1px rgba(255, 255, 255, 0.5);
+
+    border-radius: 5px;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    transition: 0.5s;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.botao_proximo-exercicio:hover {
+    cursor: pointer;
+    background-color: #157347;
+}
+
+/***********************************************************************************************/ 
+/* Tabelas */
+
+.tabela-exemplo {
+    grid-column: 2;
+    grid-row: 2 / span 3;
+}
+
+.tabela-resposta {
+    grid-column: 1;
+    grid-row: 4;
+
+    text-align: center;
+}
+
+.tabela-exemplo, .tabela-resposta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#tabela {
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    margin: 10px;
+
+    display: grid;
+    justify-items: center;
+}
+
+.tabela {
+    text-transform: capitalize;
+    align-self: center;
+}
+
+td {
+    background-color: #fdfdfd5b;
+}
+
+th, td {
+    text-align: center;
+    
+    border: 1px solid #222222;
+    
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+tr:hover {
+    background-color: #7f889283;
+}
+
+thead:first-child {
+    font-weight: bolder;
+    background-color: rgb(216, 164, 86);
+    color: #222222;
+}
+
+@media screen and (max-width: 375px) {
+    .corpo {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cartao {
+        margin-bottom: 15px;
+    }
+
+    .cartao__corpo {
+        font-size: 1.2rem;
+    }
+
+    .blocklyDiv, .codigo {
+        width: 95%;
+        height: 300px;
+        margin-bottom: 15px;
+    }
+
+    .tabela-exemplo {
+        text-align: center;
+        overflow-y: auto;
+        overflow-x: auto;
+        white-space: nowrap;
+
+        margin-bottom: 15px;
+
+        display: block;
+    }
+
+    .alerta-aviso {
+        width: 90%;
+    }
+
+    .background {
+        top: 0px;
+        height: 100%;
+    }
+
+    .cartao-resposta {
+        width: 80%;
+    }
+}

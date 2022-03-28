@@ -10,7 +10,8 @@ var workspace = Blockly.inject(blocklyDiv, {
 workspace.addChangeListener(Blockly.Events.disableOrphans);
 workspace.addChangeListener(this.mirrorEvent);
 
-var codigoInicialWebSQL = `var db = openDatabase('ExerciciosBanco', '1.0', 'Web SQL', 65536);
+//Criando o banco para o exercicio
+eval(`var db = openDatabase('ExerciciosBanco', '1.0', 'Web SQL', 65536);
 
 db.transaction(function (transaction) {
     var sql = "DROP TABLE IF EXISTS pedido;";
@@ -32,7 +33,7 @@ db.transaction(function (transaction) {
 });
 
 db.transaction(function (transaction) {
-    var sql = "CREATE TABLE IF NOT EXISTS pessoa (  id_pessoa INTEGER NOT NULL,nome VARCHAR(30) NOT NULL,cpf VARCHAR(30) UNIQUE,idade INTEGER,telefone VARCHAR(30), PRIMARY KEY (id_pessoa));";
+    var sql = "CREATE TABLE IF NOT EXISTS pessoa (  id INTEGER NOT NULL,nome VARCHAR(30) NOT NULL,cpf VARCHAR(30) UNIQUE,idade INTEGER,telefone VARCHAR(30), PRIMARY KEY (id));";
     transaction.executeSql(sql, [], function () {
         //printSuccess();
         //console.log('Tabela pessoa criada com Successo!');
@@ -121,7 +122,7 @@ db.transaction(function (transaction) {
     })
 })
 
-`;
+`);
 
 function mirrorEvent(event) {
     //Configuração SELECT JOIN
@@ -155,15 +156,15 @@ function mirrorEvent(event) {
         event.type == Blockly.Events.BLOCK_CREATE || event.type == Blockly.Events.BLOCK_DELETE) {
 
         try {
-            code = codigoInicialWebSQL + Blockly.JavaScript.workspaceToCode(this.workspace);
+            code = `var db = openDatabase('ExerciciosBanco', '1.0', 'Web SQL', 65536);` + Blockly.JavaScript.workspaceToCode(this.workspace);
             eval(code);
-            document.getElementById('tabelaSelect').innerHTML = '';
-            document.getElementById('tabelaSelect2').innerHTML = '';
         } catch (e) {
             //console.log(e) 
         }
     }
 }
+
+document.getElementById(`botao_enviar-resposta`).addEventListener("click", verificarResposta)
 
 function verificarResposta() {
     var timestamp = new Date();
@@ -176,7 +177,7 @@ function verificarResposta() {
 
     var respostas = [
         {
-            "Id_pessoa": "2",
+            "Id": "2",
             "Nome": "Mariana Gabrielly Ribeiro",
             "Cpf": "746.328.138-85",
             "Idade": "27",
@@ -187,7 +188,7 @@ function verificarResposta() {
             "Data_compra": "2021-09-28 21:3:25"
         },
         {
-            "Id_pessoa": "1",
+            "Id": "1",
             "Nome": "Anderson Joaquim Lima",
             "Cpf": "109.419.057-80",
             "Idade": "32",
@@ -198,7 +199,7 @@ function verificarResposta() {
             "Data_compra": "2021-08-25 16:4:49"
         },
         {
-            "Id_pessoa": "2",
+            "Id": "2",
             "Nome": "Mariana Gabrielly Ribeiro",
             "Cpf": "746.328.138-85",
             "Idade": "27",
@@ -209,7 +210,7 @@ function verificarResposta() {
             "Data_compra": "2021-09-29 16:1:20"
         },
         {
-            "Id_pessoa": "3",
+            "Id": "3",
             "Nome": "Eduardo Manuel Barbosa",
             "Cpf": "230.083.525-88",
             "Idade": "16",
@@ -228,18 +229,32 @@ function verificarResposta() {
     }
     
     if (isContainedIn(respostas, tabela) && isContainedIn(tabela, respostas)) {
-        document.getElementById('respostaCorreta').style.display = 'block'
-        document.getElementById('respostaErrada').style.display = 'none'
+        document.querySelector('.background').style.setProperty('right', '0');
 
         let prog = JSON.parse(localStorage.getItem('progressoEstudos'));
         if (prog[1] < 5)
             localStorage.setItem('progressoEstudos', JSON.stringify([prog[0], 5, prog[2], prog[3]]));
 
     } else {
-        document.getElementById('respostaErrada').style.display = 'block'
-        document.getElementById('respostaCorreta').style.display = 'none'
+        document.querySelector('.alerta-aviso').style.setProperty('right', '15px');
+        
+        setTimeout(function(){
+            document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+        }, 3000);
     }
 }
+
+document.getElementById(`botao_proximo-exercicio`).addEventListener("click", () => {
+    window.location.href = "../parte5/parte5.html";
+})
+
+document.getElementById(`fecharAviso`).addEventListener("click", () => {
+    document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+})
+
+document.getElementById(`fecharCartaoResposta`).addEventListener("click", () => {
+    document.querySelector('.background').style.setProperty('right', '-100vw');
+})
 
 function isContainedIn(a, b) {
     if (typeof a != typeof b)

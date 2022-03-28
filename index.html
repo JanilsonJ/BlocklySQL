@@ -5,12 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./tutorial/imagens/blockly_sql.png">
-    <title>Blockly SQL</title>
+    <link rel="shortcut icon" href="assets/imagens/blockly_sql.png">
+    <title>BlocklySQL | Home</title>
 
     <!-- Estilização da página -->
-    <link rel="stylesheet" media="screen and (min-width: 860px)" href="widescreen.css">
-    <link rel="stylesheet" media="screen and (max-width: 860px)" href="smallscreen.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/cabecalho.css">
+    <link rel="stylesheet" href="assets/css/corpo.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/cor-codigo.css">
+
+    <!-- Google Font - Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Biblioteca Blockly -->
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
@@ -26,141 +38,116 @@
     <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
     <script src="./Blocos/geradorWebSQL.js"></script>
 
-    <!-- Boostrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
     <!-- GOOGLE ADSENSE-->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2545476433082338"
-     crossorigin="anonymous"></script>
+    <!--script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2545476433082338"
+     crossorigin="anonymous"></script-->
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <span class="navbar-brand mb-0 h1" style="padding: 1vh;">
-                        <a class="nav-link" href="index.html" style="color: aliceblue;" title="Página inicial">BlocklySQL</a>
-                    </span>
-                </ul>
-                <ul class="navbar-nav d-flex align-items-center">
-                    <li class="nav-item active text-center">
-                        <a class="nav-link" href="./index.html">
-                            <i class="bi bi-house text-danger"></i> <span class="labelShow" style="color: aliceblue;">INÍCIO</span>
-                        </a>
-                    </li>
-                    &nbsp;&nbsp;
-                    <li class="nav-item active text-center">
-                        <a class="nav-link" href="./estudos/estudo.html">
-                            <i class="bi bi-pen text-warning"></i> <span class="labelShow">EXERCÍCIOS</span>
-                        </a>
-                    </li>
-                    &nbsp;&nbsp;
-                    <li class="nav-item active text-center">
-                        <a class="nav-link" href="./tutorial/tutorial.html">
-                            <i class="bi bi-info-circle text-info"></i> <span class="labelShow">TUTORIAL</span>
-                        </a>
-                    </li>
-                    &nbsp;&nbsp;
-                </ul>
-                <ul class="nav navbar-nav ">
-                    <a class="blocklyLogo" href="https://developers.google.com/blockly" target="_blank"title="Blockly Site">
-                        <img class="image-responsive" src="https://developers.google.com/blockly/images/logos/logo_built_on.png" width="60px">
-                    </a>
-                </ul>
-            </div>
+    <header class="menu">
+        <a class="menu__nome-site" href="index.html" title="Página inicial">BlocklySQL</a>
+        
+        <nav class="menu__items">
+            <a class="menu__item ativo" href="./index.html">
+                <span class="icone-casa material-icons-outlined">home</span>
+                <p class="menu-texto">Início</p>
+            </a>
+                
+            <a class="menu__item" href="./estudos/estudo.html">
+                <span class="icone-exercicio material-icons-outlined">edit_note</span>
+                <p class="menu-texto">Exercícios</p>
+                
+            </a>
+            
+            <a class="menu__item" href="./instrucoes/instrucoes.html">
+                <span class="icone-ajuda material-icons-outlined">info</span>
+                <p class="menu-texto">Instrucoes</p>
+            </a>
         </nav>
+
+        <a href="https://developers.google.com/blockly" target="_blank" title="Blockly Site">
+            <img class="menu__logo-blockly" src="assets/imagens/logo_blockly.png">
+        </a>
     </header>
 
-    <h6 class="textoApresentativo">Entenda comandos básicos do SQL com blocos visuais.</h6>
+    <main class="corpo">
+        <h1 class="titulo titulos">Conheça comandos da Linguagem de Consulta Estruturada(SQL) a partir de blocos visuais</h1>
 
-    <div id="blocklyArea"></div>
-    <div id="blocklyDiv" ></div>
+        <h2 class="blocklyDiv__titulo titulos">Workspace - Coloque aqui os blocos para a criação do banco</h2>
+        <section id="blocklyDiv" class="blocklyDiv" ></section>
+        <section id="blocklyArea"></section>
 
-    <div class="options">
-        <span class="labelShow" style="color: aliceblue;">Linguagem:</span>
-        <select id="linguagens" onchange="mirrorEvent();">
-            <option value="MySQL">MySQL</option>
-            <option value="WebSQL">WebSQL</option>
-        </select>
+        <section class="acoes">
+            <div class="selecionar-linguagem">
+                <span class="selecionar-linguagem__titulo acao-texto" >Linguagem:</span>
+                <select id="linguagens" class="selecionar-linguagem__opcao" onchange="mirrorEvent();">
+                    <option class="selecionar-linguagem__opcao-dropdown" value="MySQL">MySQL</option>
+                    <option class="selecionar-linguagem__opcao-dropdown" value="WebSQL">WebSQL</option>
+                </select>
+            </div>
 
-        <button type="button" class="btn btn-sm" onclick="runCode()" title="Executar código WebSQL">
-            <i class="bi bi-play text-success"></i> <span class="labelShow"><br>Executar</span>
-        </button>
-        <button type="button" class="btn btn-sm" onclick="clearWS()" title="Limpar workspace">
-            <i class="bi bi-eraser text-danger"></i> <span class="labelShow"><br>Limpar</span>
-        </button>
-        <button type="button" class="btn btn-sm" onclick="copyCode()" title="Copiar para área de transferência">
-            <i class="bi bi-clipboard text-info"></i> <span class="labelShow"><br>Copiar</span>
-        </button>
-        <button type="button" class="btn btn-sm" onclick="mudarTema()" title="Mudar tema">
-            <i id='themeBtn' class="bi bi-moon"></i> <span class="labelShow"><br>Tema</span>
-        </button>
-        <button type="button" class="btn btn-sm" onclick="testDB()" title="Gera estrutura exemplo">
-            <i class="bi bi-code-square"></i> <span class="labelShow"><br>Exemplo</span>
-        </button>
-        <button type="button" class="btn btn-sm" onclick="saveWS()" title="Salvar workspace">
-            <i class="bi bi-save2"></i> <span class="labelShow"><br>Salvar</span> 
-        </button>
-        <button type="button" class="btn btn-sm" onclick="loadWS()" title="Carregar workspace">
-            <i class="bi bi-download"></i> <span class="labelShow"><br>Carregar</span> 
-        </button>
-    </div>
+            <button type="button" class="botao" onclick="runCode()" title="Executar código WebSQL">
+                <span class="material-icons-outlined botao__icone-executar">play_circle_outline</span>
+                <p class="acao-texto">Executar</p>
+            </button>
+            <button type="button" class="botao" onclick="clearWS()" title="Limpar workspace">
+                <span class="material-icons-outlined botao__icone-limpar">layers_clear</span>
+                <p class="acao-texto">Limpar</p>
+            </button>
+            <button type="button" class="botao" onclick="copyCode()" title="Copiar para área de transferência">
+                <span class="material-icons-outlined botao__icone-copiar">copy_all</span>
+                <p class="acao-texto">Copiar</p>
+            </button>
+            <button type="button" class="botao" onclick="mudarTema()" title="Mudar tema">
+                <span class="material-icons-outlined botao__icone-tema">light_mode</span>
+                <p class="acao-texto">Tema</p>
+            </button>
+            <button type="button" class="botao" onclick="testDB()" title="Gera estrutura exemplo">
+                <span class="material-icons-outlined botao__icone-exemplo">code</span>
+                <p class="acao-texto">Exemplo</p>
+            </button>
+            <button type="button" class="botao" onclick="saveWS()" title="Salvar workspace">
+                <span class="material-icons-outlined botao__icone-salvar">save</span>
+                <p class="acao-texto">Salvar</p>
+            </button>
+            <button type="button" class="botao" onclick="loadWS()" title="Carregar workspace">
+                <span class="material-icons-outlined botao__icone-baixar">file_download</span>
+                <p class="acao-texto">Carregar</p>
+            </button>
+        </section>
 
-    <pre id="Codigo" class="codigoLigthTheme" style="resize: none;" readonly></pre>
+        <h2 class="codigo__titulo titulos">Apresentação do Código Gerado</h2>
+        <pre id="codigo" class="codigo codigo-tema-escuro" readonly></pre>
 
-    <div id="divSelect">
-        <h6 style="color: aliceblue;">
-            <i class="bi bi-box-arrow-down-left text-info"></i>
-            Apresentação do comando SELECT
-            <i class="bi bi-box-arrow-down-right text-info"></i>
-        </h6>
-    </div>
-    <div id="tabela">
-        <div class="col table-responsive">
-            <table id="tabelaSelect" class="table table-dark table-striped table-hover mx-auto w-auto"> </table>
-        </div>
-    </div>
-    
-    <!-- Alertar e Avisos-->
-    <!-- Icones -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-        </symbol>
-        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-        </symbol>
-        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-        </symbol>
-    </svg>
+        <h2 class="campo-tabela__titulo titulos">Tabela resultante do comando SELECT</h2>
+        <section class="campo-tabela">
+            <div class="campo-tabela__tabela">
+                <table id="tabelaSelect"> </table>
+            </div>
+        </section>
+    </main>
 
     <!-- Alertas -->
-    <div id="alerta1" style="display: none;">
-        <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <div id="alertmsg1"></div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlerts()"></button>
-        </div>
+    <div class="alerta alerta-sucesso">
+        <span class="material-icons-round">task_alt</span>
+        <div id="alertaMensagem">Execução conluída!</div>
+        <button type="button" class="alerta__fecha" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlerts()">
+            <span class="material-icons-round">close</span>
+        </button>
     </div>
-    
-    <div id="alerta2" style="display: none;">
-        <div class="alert alert-info d-flex align-items-center alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-            <div id="alertmsg2"></div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlerts()"></button>
-        </div>
+    <div class="alerta alerta-copia">
+        <span class="material-icons-round alerta__icone">info</span>
+        <div id="alertaMensagemInfo" class="alerta__mensagem "></div>
+        <button type="button" class="alerta__fecha" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlerts()">
+            <span class="material-icons-round">close</span>
+        </button>
     </div>
-    
-    <div id="alerta3" style="display: none;">
-        <div class="alert alert-success d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <div id="alertmsg3"></div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlerts()"></button>
-        </div>
+    <div class="alerta alerta-aviso">
+        <span class="material-icons-round alerta__icone">warning</span>
+        <div id="alertaMensagemAviso" class="alerta__mensagem"></div>
+        <button type="button" class="alerta__fecha" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlerts()">
+            <span class="material-icons-round">close</span>
+        </button>
     </div>
 </body>
 
@@ -505,7 +492,7 @@
     </block>
 </xml>
 
-<!-- Back end -->
+<!-- JavaScript -->
 <script src="./index.js"></script>
 
 </html>

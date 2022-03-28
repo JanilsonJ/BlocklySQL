@@ -1,0 +1,530 @@
+:root {
+    font-family: 'Montserrat', sans-serif;
+
+    --backgorund-tema: rgb(25, 25, 25); 
+}
+
+/***********************************************************************************************/
+/* Corpo */
+
+.corpo {
+    display: grid;
+    grid-template-columns: 50% 8% 40%;
+    grid-template-rows: 6vh 5vh 70vh 6vh 35vh;
+
+    justify-content: space-between;
+
+    height: calc(122vh + 30px);
+}
+
+.titulo {
+    color: #fdfdfd;
+    font-size: 1.1rem;
+    grid-column: span 3;
+    text-align: center;
+    align-self: center;
+}
+
+/***********************************************************************************************/ 
+/* Configurações Blockly*/
+
+.blocklyDiv__titulo{
+    color: #fdfdfd;
+    font-size: 1.1rem;
+    text-align: center;
+    align-self: center;
+    
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+}
+
+.blocklyDiv {
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+
+    width: 95%;
+    height: 99%;
+
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 3px rgba(255, 255, 255, 0.5);
+    
+    justify-self: center;
+}
+
+.blocklyMainBackground {
+    fill: var(--backgorund-tema) !important;
+}
+
+.blocklySvg, .geras-renderer.classic-theme{
+    border-radius: 8px;
+}
+
+.blocklyTreeLabel{
+    font-size: 10px;
+}
+
+.blocklyToolboxCategory {
+    padding: .5em;
+}
+
+.blocklyTreeRow {
+    border-radius: 4px;
+}
+
+.blocklyToolboxDiv {
+    background-image: radial-gradient(rgba(45, 45, 45, 0.8), rgb(45, 45, 45));
+    color: aliceblue;
+}
+
+.blocklyFlyoutBackground{
+    fill: rgb(45, 45, 45);
+    color: aliceblue;
+}
+
+.geras-renderer.classic-theme .blocklyFlyoutLabelText {
+    fill: aliceblue;
+}
+
+/***********************************************************************************************/ 
+/* Ações */
+
+.acoes {
+    width: 100%;
+
+    grid-column: 2 / 2;
+    grid-row: 2 / span 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.selecionar-linguagem {
+    color: #FDFDFD;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.selecionar-linguagem__titulo {
+    margin-bottom: 5px;
+}
+
+.selecionar-linguagem__opcao {
+    color: #FDFDFD;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0px 5px 4px -1px rgba(255, 255, 255, 0.5);
+}
+
+.selecionar-linguagem__opcao:hover {
+    cursor: pointer;
+    background-color: #fdfdfd25;
+}
+
+.selecionar-linguagem__opcao-dropdown {
+    color: #000;
+}
+
+.botao {
+    color: #FDFDFD;
+    width: 100%;
+
+    box-shadow: 0px 5px 4px -1px rgba(255, 255, 255, 0.5);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    border-radius: 10px;
+
+    padding: 0.3rem;
+
+    transition: 0.5s;
+}
+
+.botao:hover {
+    cursor: pointer;
+    background-color: #fdfdfd25;
+}
+
+.botao__icone-executar {
+    color: rgb(25, 112, 25);
+}
+
+.botao__icone-limpar {
+    color: rgb(187, 48, 48);
+}
+
+.botao__icone-copiar {
+    color: rgb(15, 194, 194);
+}
+
+.botao__icone-tema {
+    color: rgb(218, 188, 18);
+}
+
+.botao__icone-exemplo {
+    color: rgb(223, 147, 35);
+}
+
+.botao__icone-salvar {
+    color: rgb(28, 150, 83);
+}
+
+.botao__icone-baixar {
+    color: rgb(145, 44, 123);
+}
+
+/***********************************************************************************************/ 
+/* Área de Código */
+
+.codigo {
+    height: 99%;
+    width: 95%;
+
+    background-color: var(--backgorund-tema);
+    
+    font-family: Consolas, monaco, monospace !important;
+    font-weight: bolder;
+    font-size: 12px;
+
+    padding: 7px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 2px rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+
+    overflow: auto;
+
+
+    grid-column: 3 / 3;
+    grid-row: 3 / 3;
+
+    justify-self: center;
+
+    resize: none;
+}
+
+.codigo__titulo{
+    color: #fdfdfd;
+    font-size: 1.1rem;
+    text-align: center;
+    align-self: center;
+    
+    grid-column: 3 / 3;
+    grid-row: 2 / 2;
+}
+
+.codigo-tema-claro {
+    color: black;
+}
+
+.codigo-tema-escuro {
+    color: aliceblue;
+}
+
+/***********************************************************************************************/ 
+/* Campo Tabela */
+
+.campo-tabela {
+    color: #FDFDFD;
+
+    grid-column: 1/ span 3;
+    grid-row: 4 / 4;
+    
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.campo-tabela__titulo{
+    color: #fdfdfd;
+    font-size: 1.1rem;
+    text-align: center;
+    align-self: center;
+    
+    grid-column: 1 /span 3;
+    grid-row: 4 / 4;
+}
+
+.campo-tabela__tabela {
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    justify-self: center;
+    
+    margin-top: 45px;
+    max-width: 98% !important;
+    height: 38vh;
+    border-radius: 10px;
+}
+
+th, td {
+    text-align: center;
+    
+    border: 1px solid #222222;
+    
+    padding: 9px;
+    box-sizing: border-box;
+
+    transition: 1.5s;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f21e;
+}
+
+tr:hover {
+    background-color: #7f889283;
+}
+
+tr:first-child {
+    font-weight: bolder;
+    background-color: rgb(216, 164, 86);
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    color: #222222;
+}
+
+/***********************************************************************************************/ 
+/* ALERTAS */
+
+.alerta {
+    box-shadow: 0px 0px 8px 1px rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    
+    padding: .3rem;
+    box-sizing: border-box;
+
+    position: fixed; 
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 1.5s;
+
+    right: -1000px;
+}
+
+.alerta-sucesso {
+    background-color: #d1e7dd;
+    color: #0f5132;
+
+    width: 250px;
+    top: 50px;
+}
+
+.alerta-copia {
+    background-color: #cff4fc;
+    color: #055160;
+
+    width: 500px;
+    bottom: 20px;
+}
+
+.alerta-aviso {
+    background-color: #fff3cd;
+    color: #664d03;
+
+    width: 500px;
+    bottom: 20px;
+}
+
+.alerta__mensagem {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    
+}
+
+.alerta__icone {
+    margin-left: 10px;
+}
+
+.alerta__fecha {
+    color: #FDFDFD;
+    background-color: transparent;
+    color: rgba(145, 36, 36, 0.788);
+    transition: 0.5s;
+
+    display: flex;
+
+    border-radius: 25%;
+    
+    margin-right: 10px;
+}
+
+.alerta__fecha:hover{
+    color: rgb(145, 36, 36);
+    cursor: pointer;
+}
+
+/***********************************************************************************************/ 
+/* SCROLLBARS */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    width: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0, 0);  
+    border: solid 4px transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border: solid 4px transparent;
+    background: rgb(205, 205, 205);
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(180, 180, 180); 
+}
+
+@media screen and (max-width: 1024px) {
+    .acoes {
+        font-size: 0.6rem;
+    }
+
+    .titulo, .blocklyDiv__titulo, .codigo__titulo, .campo-tabela__titulo {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .titulo, .blocklyDiv__titulo, .codigo__titulo, .campo-tabela__titulo {
+        font-size: 0.8rem;
+    }
+
+    .botao{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .menu{
+        justify-content: space-between;
+    }
+
+    .menu-texto{
+        display: none;
+    }
+
+    .menu__logo-blockly, .menu__item{
+        margin-left: 5px;
+    }
+
+    .corpo {
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: center;
+        align-items: center;
+        
+        height: 100%;
+    }
+
+    .titulos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 2px;
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 30px;
+    }
+
+    .titulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 2px;
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 30px;
+    }
+
+    .blocklyDiv__titulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 2px;
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 25px;
+    }
+
+    .blocklyDiv {
+        height: 60vh;
+    }
+
+    .acoes {
+        display: flex;
+        flex-direction: row;
+
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    .acao-texto {
+        display: none;
+    }
+
+    .selecionar-linguagem {
+        width: 70px;
+        height: 30px;
+    }
+
+    .selecionar-linguagem__opcao{
+        height: 30px;
+    }
+
+    .botao {
+        width: 50px;
+        height: 30px;
+    }
+
+    .codigo {
+        height: 40vh;
+    }
+
+    .campo-tabela__tabela {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .menu__logo-blockly{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .menu{
+        justify-content: center
+    }
+
+    .menu__nome-site{
+        display: none;
+    }
+}
+

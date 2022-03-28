@@ -3,7 +3,7 @@ var workspace = Blockly.inject(blocklyDiv, {
     collapse: true,
     trashcan: true,
     zoom: {
-        startScale: 0.7
+        startScale: 0.8
     }
 });
 workspace.addChangeListener(Blockly.Events.disableOrphans);
@@ -19,7 +19,6 @@ db.transaction(function (transaction) {
         //printErr(err);
     })
 });
-
 
 db.transaction(function (transaction) {
     var sql = "CREATE TABLE IF NOT EXISTS pessoa (  id INTEGER NOT NULL,nome VARCHAR(30) NOT NULL,cpf VARCHAR(30) UNIQUE,idade INTEGER,telefone VARCHAR(30), PRIMARY KEY (id));";
@@ -80,6 +79,7 @@ function mirrorEvent(event) {
     code = aplicarCor(code)
     document.getElementById("Codigo").innerHTML = code;
 
+    //Verifica se alguma ação relevante foi realizada
     if ((event.type == Blockly.Events.BLOCK_CHANGE && (event.element == 'field' || event.element == 'disabled')) ||
         (event.type == Blockly.Events.BLOCK_MOVE && !event.oldParentId && event.newParentId) ||
         event.type == Blockly.Events.BLOCK_CREATE || event.type == Blockly.Events.BLOCK_DELETE) {
@@ -94,6 +94,8 @@ function mirrorEvent(event) {
         }
     }
 }
+
+document.getElementById(`botao_enviar-resposta`).addEventListener("click", verificarResposta)
 
 function verificarResposta() {
     var respostas = [
@@ -118,18 +120,32 @@ function verificarResposta() {
     }
 
     if (isContainedIn(respostas, tabela) && isContainedIn(tabela, respostas)) {
-        document.getElementById('respostaCorreta').style.display = 'block'
-        document.getElementById('respostaErrada').style.display = 'none'
+        document.querySelector('.background').style.setProperty('right', '0');
 
         let prog = JSON.parse(localStorage.getItem('progressoEstudos'));
         if (prog[1] < 3)
             localStorage.setItem('progressoEstudos', JSON.stringify([prog[0], 3, prog[2], prog[3]]));
 
     } else {
-        document.getElementById('respostaErrada').style.display = 'block'
-        document.getElementById('respostaCorreta').style.display = 'none'
+        document.querySelector('.alerta-aviso').style.setProperty('right', '15px');
+        
+        setTimeout(function(){
+            document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+        }, 3000);
     }
 }
+
+document.getElementById(`botao_proximo-exercicio`).addEventListener("click", () => {
+    window.location.href = "../parte3/parte3.html";
+})
+
+document.getElementById(`fecharAviso`).addEventListener("click", () => {
+    document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+})
+
+document.getElementById(`fecharCartaoResposta`).addEventListener("click", () => {
+    document.querySelector('.background').style.setProperty('right', '-100vw');
+})
 
 function isContainedIn(a, b) {
     if (typeof a != typeof b)

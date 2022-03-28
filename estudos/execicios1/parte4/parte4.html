@@ -5,12 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../../tutorial/imagens/blockly_sql.png">
-    <title>Primeiros Passos</title>
+    <link rel="shortcut icon" href="../../../assets/imagens/blockly_sql.png">
+    <title>Blockly | Exercício 1 - 4 </title>
 
     <!-- Estilização da página -->
-    <link rel="stylesheet" media="screen and (min-width: 860px)" href="../widescreen.css">
-    <link rel="stylesheet" media="screen and (max-width: 860px)" href="../smallscreen.css">
+    <link rel="stylesheet" href="../../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../../assets/css/cabecalho.css">
+    <link rel="stylesheet" href="../../../assets/css/corpo.css">
+    <link rel="stylesheet" href="../../../assets/css/cor-codigo.css">
+    <link rel="stylesheet" href="../questao.css">
+
+    <!-- Google Font - Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Uso da biblioteca Blockly -->
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
@@ -20,128 +32,98 @@
 
     <!-- Código Personalisados -->
     <script src="../colorirCodigo.js"></script>
-    
+
     <!-- Gerador MySQL -->
     <script src="https://unpkg.com/blockly/lua_compressed.js"></script>
     <script src="../../../Blocos/geradorMySQL.js"></script>
-
-    <!-- Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <ul class="navbar-nav d-flex align-items-center">
-                    <span class="navbar-brand mb-0 h1" style="padding: 1vh;">
-                        <a class="nav-link" href="../../estudo.html" style="color: aliceblue;"
-                            title="Voltar para estudos">
-                            <i class="bi bi-arrow-bar-left"></i> Exercícios</a>
-                    </span>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <a class="blocklyLogo" href="https://developers.google.com/blockly" target="_blank"
-                        title="Blockly Site">
-                        <img class="image-responsive"
-                            src="https://developers.google.com/blockly/images/logos/logo_built_on.png" width="60px">
-                    </a>
-                </ul>
-            </div>
-        </nav>
+    <header class="menu">
+        <div class="menu__voltar">
+            <span class="material-icons-outlined menu__voltar-icone">first_page</span>
+            <a href="../../estudo.html" title="Voltar para exercícios" class="menu__item">
+                Voltar para exercícios
+            </a>
+        </div>
+
+        <a href="https://developers.google.com/blockly" target="_blank" title="Blockly Site">
+            <img class="menu__logo-blockly" src="../../../assets/imagens/logo_blockly.png">
+        </a>
     </header>
 
-    <div class="container card text-center bg-dark">
-        <div class="card-header">
-            EXERCÍCIO
-        </div>
-        <div class="card-body">
-            Identifique e <span style="color: rgb(209, 209, 157);">CONECTE</span> 
-            os blocos SELECT corretos para que apresente somente pessoas acima de 18 anos de idade.
-        </div>
-    </div>
+    <main class="corpo">
+        <section class="cartao">
+            <div class="cartao__cabecalho">
+                <h2 class="cartao__cabecalho-titulo">Exercício 1 — Questão 4</h2>
+            </div>
+            <div class="cartao__corpo">
+                <p class="cartao-objetivo">Identifique e CONECTE os blocos SELECT corretos para que 
+                apresente somente pessoas acima de 18 anos de idade.</p>
+            </div>
+        </section>
 
-    <div id="blocklyDiv"></div>
+        <section id="blocklyDiv" class="blocklyDiv"></section>
 
-    <pre id="Codigo" style="resize: none;" readonly></pre>
+        <pre id="Codigo" class="codigo" readonly></pre>
 
-    <div class="divBotao">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
-            onclick="verificarResposta()"> Enviar resposta
+        <button type="button" id="botao_enviar-resposta" class="botao_enviar-resposta">Validar resposta</button>
+    </main>
+    
+    <div class="alerta alerta-aviso">
+        <span class="material-icons-round alerta__icone">block</span>
+        <div id="alertaMensagemAviso" class="alerta__mensagem">Resposta errada!</div>
+        <button id="fecharAviso" type="button" class="alerta__fecha">
+            <span class="material-icons-round">close</span>
         </button>
     </div>
-
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div id="respostaErrada" class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Resposta não aceita! <span style="color: red;"><i
-                                class="bi bi-emoji-dizzy-fill"></i></span></h4>
-                    <button type="button" class="btn btn-danger close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body" style="text-align: justify; text-justify: inter-word;">
-                    Correção não realizada ou código com erros persistentes.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                </div>
+    
+    <div id="RespostaCorreta" class="background">
+        <div class="cartao-resposta">
+            <div class="cartao-resposta__cabecalho">
+                <p class="cartao-resposta__titulo">Resposta Correta!</p>
+                <button type="button" class="alerta__fecha" id="fecharCartaoResposta">
+                    <span class="material-icons-round">close</span>
+                </button>
             </div>
-            <div id="respostaCorreta" class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Resposta correta! <span style="color: green;"><i
-                                class="bi bi-emoji-smile-fill"></i></span></h4>
-                    <button type="button" class="btn btn-danger close" data-dismiss="modal">&times;</button>
-                </div>
-                
-                <div class="col text-center vertical-center" style="margin-top: 2vh;">
-                    <div class="table-responsive" style="white-space:nowrap;">
-                        <table  class="table table-success table-striped table-hover mx-auto w-auto">
-                            <thead>
-                                <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">nome</th>
-                                    <th scope="col">sexo</th>
-                                    <th scope="col">idade</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Anderson Joaquim Lima</td>
-                                    <td>M</td>
-                                    <td>38</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mariana Gabrielly Ribeiro</td>
-                                    <td>F</td>
-                                    <td>23</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="modal-body" style="text-align: justify; text-justify: inter-word;">
-                    <p class="text-center">EXPLICAÇÃO</p>
-                    Ao fazer um pesquisa no banco deve-ser ter cuidado com os diversos metodos de comparação e o nome da tabela.
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-success" href="../parte5/parte5.html">
-                        Proximo exercício
-                    </a>
-                </div>
+            <div class="cartao-resposta__corpo">
+                <p class="cartao-resposta__corpo__titulo">EXPLICAÇÃO</p>
+                Ao fazer um pesquisa no banco deve-ser ter cuidado com os diversos metodos de comparação e o nome da tabela.
+                <table  class="tabela">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nome</th>
+                            <th scope="col">sexo</th>
+                            <th scope="col">idade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Anderson Joaquim Lima</td>
+                            <td>M</td>
+                            <td>38</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Mariana Gabrielly Ribeiro</td>
+                            <td>F</td>
+                            <td>23</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cartao-resposta__rodape">
+                <button type="button" id="botao_proximo-exercicio" class="botao_proximo-exercicio">Proxímo
+                    exercício</button>
             </div>
         </div>
     </div>
 </body>
 
 <xml id="xml1" style="display: none">
-    <block type="start_sql" x="10" y="40">
+    <block type="start_sql" x="20" y="20">
         <field name="db_name">database</field>
         <next>
             <block type="create_table">
@@ -264,29 +246,29 @@
             </block>
         </next>
     </block>
-        <block type="select_var" x="560" y="240">
+        <block type="select_var" x="560" y="170">
             <field name="var_input">*</field>
         </block>
-        <block type="select_from" x="640" y="240">
+        <block type="select_from" x="640" y="170">
             <field name="table_name">pessoas</field>
         </block>
-        <block type="select_from" x="560" y="320">
+        <block type="select_from" x="560" y="250">
             <field name="table_name">database</field>
         </block>
-        <block type="select_from" x="690" y="320">
+        <block type="select_from" x="690" y="250">
             <field name="table_name">pessoa</field>
         </block>
-        <block type="select_where" x="560" y="390">
+        <block type="select_where" x="560" y="320">
             <field name="variavel">sexo</field>
             <field name="op">=</field>
             <field name="value">M</field>
         </block>
-        <block type="select_where" x="560" y="460">
+        <block type="select_where" x="560" y="390">
             <field name="variavel">idade</field>
             <field name="op">=</field>
             <field name="value">18</field>
         </block>
-        <block type="select_where" x="560" y="530">
+        <block type="select_where" x="560" y="460">
             <field name="variavel">idade</field>
             <field name="op">></field>
             <field name="value">18</field>

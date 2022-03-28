@@ -1,3 +1,12 @@
+/*Aviso para caso de erro*/
+document.querySelector('.alerta-copia').style.setProperty('right', '15px');
+document.getElementById('alertaMensagemInfo').innerHTML = 'Em caso de erro aperte ctrl + shift + r para limpar o cache da página.';
+
+setTimeout(function(){
+    document.querySelector('.alerta-copia').style.setProperty('right', '-1000px');
+}, 3000);
+        
+
 var blocklyDiv = document.getElementById('blocklyDiv');
 var workspace = Blockly.inject(blocklyDiv, {
     toolbox: document.getElementById('toolbox'),
@@ -41,7 +50,7 @@ function mirrorEvent() {
             break;
     }
 
-    document.getElementById("Codigo").innerHTML = aplicarColor(code);
+    document.getElementById("codigo").innerHTML = aplicarColor(code);
 
     //Configuração SELECT JOIN
     try {
@@ -105,50 +114,50 @@ function runCode() {
 
 function copyCode() {
     var range = document.createRange();
-    range.selectNode(document.getElementById("Codigo"));
+    range.selectNode(document.getElementById("codigo"));
     window.getSelection().removeAllRanges(); // clear current selection
     window.getSelection().addRange(range); // to select text
     document.execCommand("copy");
     window.getSelection().removeAllRanges();// to deselect
     
     closeAlerts()
-    document.getElementById('alerta2').style.display = 'block';
-    document.getElementById('alertmsg2').innerHTML = 'Código ' + document.getElementById("linguagens").value + ' copiado para área de tranferência.';
+    
+    // Configuração o alert
+    document.querySelector('.alerta-copia').style.setProperty('right', '15px');
+    document.getElementById('alertaMensagemInfo').innerHTML = 'Código ' + document.getElementById("linguagens").value + ' copiado para área de tranferência.';
 
     setTimeout(function(){
-        document.getElementById('alerta2').style.display = 'none';
-    }, 2000);
+        document.querySelector('.alerta-copia').style.setProperty('right', '-1000px');
+    }, 3000);
 }
 
 function closeAlerts() {
-    document.getElementById('alerta1').style.display = 'none';
-    document.getElementById('alerta2').style.display = 'none';
-    document.getElementById('alerta3').style.display = 'none';
+    document.querySelector('.alerta-sucesso').style.setProperty('right', '-1000px');
+    document.querySelector('.alerta-copia').style.setProperty('right', '-1000px');
+    document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
 }
 
 function mudarTema() {
-    let codigo = document.getElementById("Codigo").classList;
-    let btn = document.getElementById("themeBtn").classList;
-    var r = document.querySelector(':root'); //Muda a cor da Workspace
+    let codigo = document.getElementById("codigo").classList;
+    let btn = document.querySelector('.botao__icone-tema');
+    var tema = document.querySelector(':root'); //Muda a cor da Workspace
 
-    if (codigo.contains('codigoDarkTheme')){
-        codigo.add('codigoLigthTheme');
-        codigo.remove('codigoDarkTheme');
+    if (codigo.contains('codigo-tema-escuro')){
+        codigo.add('codigo-tema-claro');
+        codigo.remove('codigo-tema-escuro');
 
-        r.style.setProperty('--fill', 'rgb(240, 240, 240)'); //Muda a cor da Workspace
+        tema.style.setProperty('--backgorund-tema', 'rgb(230, 230, 230)'); //Muda a cor da Workspace
         
-        btn.remove('text-warning');
-        btn.remove('bi-sun');
-        btn.add('bi-moon');
+        btn.style.setProperty('color', 'rgb(75, 69, 69)'); //Muda a cor da área de código
+        btn.innerHTML = 'dark_mode'
     } else{
-        codigo.add('codigoDarkTheme');
-        codigo.remove('codigoLigthTheme');
+        codigo.add('codigo-tema-escuro');
+        codigo.remove('codigo-tema-claro');
 
-        r.style.setProperty('--fill', 'rgb(25, 25, 25)'); //Muda a cor da Workspace
+        tema.style.setProperty('--backgorund-tema', 'rgb(25, 25, 25)'); //Muda a cor da Workspace
 
-        btn.add('text-warning');
-        btn.add('bi-sun');
-        btn.remove('bi-moon');
+        btn.style.setProperty('color', 'rgb(218, 188, 18)'); //Muda a cor da área de código
+        btn.innerHTML = 'light_mode'
     }
 }
 

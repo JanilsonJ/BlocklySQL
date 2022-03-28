@@ -1,0 +1,37 @@
+/******************************************************************************************************************************************************************** */
+/*CORES CÓDIGO*/
+.bg_create_db{
+    background-color: rgb(91, 165, 91);
+}
+
+.bg_create_table{
+    background-color: rgb(81, 99, 155);
+}
+
+.bg_var{
+    background-color: rgb(67, 190, 199);
+}
+
+.bg_insert{
+    background-color: rgb(147, 91, 165);
+}
+
+.bg_update{
+    background-color: rgb(165, 165, 91);
+}
+
+.bg_alter_table{
+    background-color: rgb(165, 128, 91);
+}
+
+.bg_delete_from{
+    background-color: rgb(165, 91, 91);
+}
+
+.bg_drop_table{
+    background-color: rgb(165, 91, 109);
+}
+
+.bg_select{
+    background-color: rgb(91, 165, 147);
+}

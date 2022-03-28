@@ -10,7 +10,8 @@ var workspace = Blockly.inject(blocklyDiv, {
 workspace.addChangeListener(Blockly.Events.disableOrphans);
 workspace.addChangeListener(this.mirrorEvent);
 
-var codigoInicialWebSQL = `var db = openDatabase('ExerciciosBanco', '1.0', 'Web SQL', 65536);
+//Criando o banco para o exercicio
+eval(`var db = openDatabase('ExerciciosBanco', '1.0', 'Web SQL', 65536);
 
 db.transaction(function (transaction) {
     var sql = "DROP TABLE IF EXISTS pedido;";
@@ -32,7 +33,7 @@ db.transaction(function (transaction) {
 });
 
 db.transaction(function (transaction) {
-    var sql = "CREATE TABLE IF NOT EXISTS pessoa (  id_pessoa INTEGER NOT NULL,nome VARCHAR(30) NOT NULL,cpf VARCHAR(30) UNIQUE,idade INTEGER,telefone VARCHAR(30), PRIMARY KEY (id_pessoa));";
+    var sql = "CREATE TABLE IF NOT EXISTS pessoa (  id INTEGER NOT NULL,nome VARCHAR(30) NOT NULL,cpf VARCHAR(30) UNIQUE,idade INTEGER,telefone VARCHAR(30), PRIMARY KEY (id));";
     transaction.executeSql(sql, [], function () {
         //printSuccess();
         //console.log('Tabela pessoa criada com Successo!');
@@ -121,7 +122,7 @@ db.transaction(function (transaction) {
     })
 })
 
-`;
+`);
 
 function mirrorEvent(event) {
     //Configuração SELECT JOIN
@@ -154,7 +155,7 @@ function mirrorEvent(event) {
         event.type == Blockly.Events.BLOCK_CREATE || event.type == Blockly.Events.BLOCK_DELETE) {
 
         try {
-            code = codigoInicialWebSQL + Blockly.JavaScript.workspaceToCode(this.workspace);
+            code = `var db = openDatabase('ExerciciosBanco', '1.0', 'Web SQL', 65536);` + Blockly.JavaScript.workspaceToCode(this.workspace);
             eval(code);
             document.getElementById('tabelaSelect').innerHTML = '';
         } catch (e) {
@@ -162,6 +163,8 @@ function mirrorEvent(event) {
         }
     }
 }
+
+document.getElementById(`botao_enviar-resposta`).addEventListener("click", verificarResposta)
 
 function verificarResposta() {
     var respostas = [
@@ -202,20 +205,33 @@ function verificarResposta() {
     }
     
     if (isContainedIn(respostas, tabela) && isContainedIn(tabela, respostas)) {
-        document.getElementById('respostaCorreta').style.display = 'block'
-        document.getElementById('respostaErrada').style.display = 'none'
+        document.querySelector('.background').style.setProperty('right', '0');
 
         let prog = JSON.parse(localStorage.getItem('progressoEstudos'));
         if (prog[1] < 6)
             localStorage.setItem('progressoEstudos', JSON.stringify([prog[0], 6, prog[2], prog[3]]));
 
     } else {
-        document.getElementById('respostaErrada').style.display = 'block'
-        document.getElementById('respostaCorreta').style.display = 'none'
+        document.querySelector('.alerta-aviso').style.setProperty('right', '15px');
+        
+        setTimeout(function(){
+            document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+        }, 3000);
     }
 }
 
-// Dar creditos...
+document.getElementById(`botao_proximo-exercicio`).addEventListener("click", () => {
+    window.location.href = "../../estudo.html";
+})
+
+document.getElementById(`fecharAviso`).addEventListener("click", () => {
+    document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+})
+
+document.getElementById(`fecharCartaoResposta`).addEventListener("click", () => {
+    document.querySelector('.background').style.setProperty('right', '-100vw');
+})
+
 function isContainedIn(a, b) {
     if (typeof a != typeof b)
         return false;

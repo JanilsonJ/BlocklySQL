@@ -35,6 +35,8 @@ function mirrorEvent() {
     document.getElementById("Codigo").innerHTML = code;
 }
 
+document.getElementById(`botao_enviar-resposta`).addEventListener("click", verificarResposta)
+
 function verificarResposta() {
     let resposta = `CREATE DATABASE IF NOT EXISTS database;
 USE database;
@@ -63,8 +65,7 @@ WHERE idade > 18 `
     let codigo = document.getElementById('Codigo').textContent;
 
     if (codigo.includes(resposta)) {
-        document.getElementById('respostaCorreta').style.display = 'block'
-        document.getElementById('respostaErrada').style.display = 'none'
+        document.querySelector('.background').style.setProperty('right', '0');
         
         let prog = JSON.parse(localStorage.getItem('progressoEstudos'));
 
@@ -72,7 +73,22 @@ WHERE idade > 18 `
             localStorage.setItem('progressoEstudos', JSON.stringify([5,prog[1],prog[2],prog[3]]));
 
     } else {
-        document.getElementById('respostaErrada').style.display = 'block'
-        document.getElementById('respostaCorreta').style.display = 'none'
+        document.querySelector('.alerta-aviso').style.setProperty('right', '15px');
+        
+        setTimeout(function(){
+            document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+        }, 3000);
     }
 }
+
+document.getElementById(`botao_proximo-exercicio`).addEventListener("click", () => {
+    window.location.href = "../parte5/parte5.html";
+})
+
+document.getElementById(`fecharAviso`).addEventListener("click", () => {
+    document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+})
+
+document.getElementById(`fecharCartaoResposta`).addEventListener("click", () => {
+    document.querySelector('.background').style.setProperty('right', '-100vw');
+})

@@ -543,8 +543,6 @@ var time;
 function printErr(err){
     window.clearTimeout(time); // Resetar o tempo do popup de aviso
     
-    document.getElementById('alerta1').style.display = 'none'
-    
     // Pegar apenas a mensagem de erro e não todo o objeto
     err = err.message
     
@@ -595,20 +593,18 @@ function printErr(err){
     err = err.replace('values for', 'valor(es) para');
     err = err.replace('columns', 'coluna(s)');
 
-    document.getElementById('alerta1').style.display = 'block';
-    document.getElementById('alertmsg1').innerHTML = err + '.';
+    document.querySelector('.alerta-aviso').style.setProperty('right', '15px');
+    document.getElementById('alertaMensagemAviso').innerHTML = err + '.';
 
     time = setTimeout(function(){
-        document.getElementById('alerta1').style.display = 'none';
+        document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
     }, 6000);
 }
 
 function printSuccess(){
-    document.getElementById('alerta3').style.display = 'block';
-    
-    document.getElementById('alertmsg3').innerHTML = 'Execução conluída!';
+    document.querySelector('.alerta-sucesso').style.setProperty('right', '15px');
     
     time = setTimeout(function(){
-        document.getElementById('alerta3').style.display = 'none';
-    }, 3000);
+        document.querySelector('.alerta-sucesso').style.setProperty('right', '-1000px');
+    }, 4000);
 }

@@ -5,112 +5,111 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../tutorial/imagens/blockly_sql.png">
-    <title>Passo a passo Blockly SQL</title>
-
+    <link rel="shortcut icon" href="../assets/imagens/blockly_sql.png">
+    <title>BlocklySQL | Exercícios</title>
 
     <!-- Estilização da página -->
-    <link rel="stylesheet" href="estudo.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/cabecalho.css">
+    <link rel="stylesheet" href="../assets/css/corpo.css">
+    <link rel="stylesheet" href="../assets/css/exercicios.css">
 
-    <!-- Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Google Font - Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <span class="navbar-brand mb-0 h1" style="padding: 1vh;">
-                        <a class="nav-link" href="../index.html" style="color: aliceblue;" title="Página inicial">BlocklySQL</a>
-                    </span>
-                </ul>
-                <ul class="navbar-nav d-flex align-items-center">
-                    <li class="nav-item active text-center">
-                        <a class="nav-link" href="../index.html">
-                            <i class="bi bi-house text-danger"></i> <span class="labelShow">INÍCIO</span>
-                        </a>
-                    </li>
-                    &nbsp;&nbsp;
-                    <li class="nav-item active text-center">
-                        <a class="nav-link" href="../estudos/estudo.html">
-                            <i class="bi bi-pen text-warning"></i> <span class="labelShow" style="color: aliceblue;">EXERCÍCIOS</span>
-                        </a>
-                    </li>
-                    &nbsp;&nbsp;
-                    <li class="nav-item active text-center">
-                        <a class="nav-link" href="../tutorial/tutorial.html">
-                            <i class="bi bi-info-circle text-info"></i> <span class="labelShow">TUTORIAL</span>
-                        </a>
-                    </li>
-                    &nbsp;&nbsp;
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <a class="blocklyLogo" href="https://developers.google.com/blockly" target="_blank"title="Blockly Site">
-                        <img class="image-responsive" src="https://developers.google.com/blockly/images/logos/logo_built_on.png" width="60px">
-                    </a>
-                </ul>
-            </div>
+    <header class="menu">
+        <a class="menu__nome-site" href="../index.html" title="Página inicial">BlocklySQL</a>
+        
+        <nav class="menu__items">
+            <a class="menu__item" href="../index.html">
+                <span class="icone-casa material-icons-outlined">home</span>
+                <p class="menu-texto">Início</p>
+            </a>
+                
+            <a class="menu__item ativo" href="./estudo.html">
+                <span class="icone-exercicio material-icons-outlined">edit_note</span>
+                <p class="menu-texto">Exercícios</p>
+            </a>
+            
+            <a class="menu__item" href="../instrucoes/instrucoes.html">
+                <span class="icone-ajuda material-icons-outlined">info</span>
+                <p class="menu-texto">Instruções</p>
+            </a>
         </nav>
+
+        <a href="https://developers.google.com/blockly" target="_blank" title="Blockly Site">
+            <img class="menu__logo-blockly" src="../assets/imagens/logo_blockly.png">
+        </a>
     </header>
 
-    <section class="textoApresentativo">
-        <h1>Exercícios Blockly SQL</h1>
-    </section>
+    <main class="corpo">
+        <h1 class="titulo titulos">Exercícios Blockly SQL</h1>
 
-    <div class="container">
-        <div class="container">
-            <div id="1" class="col">
-                <div class="card bg-dark text-center">
-                    <div class="card-header">ORGANIZE OS BLOCOS</div>
-                    <div class="card-body">
-                        <p class="card-text">Objetivo: dada uma sequência de blocos corrija o(s) erro(s) presentes para
-                            que gere um código 100% executável.</p>
-                        <button id="1.1" class="btn btn-primary btn-sm">
-                            <a class="nav-link color" href="./execicios1/parte1/parte1.html">1</a>
-                        </button>
-                        <button id="1.2" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios1/parte2/parte2.html">2</a>
-                        </button>
-                        <button id="1.3" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios1/parte3/parte3.html">3</a>
-                        </button>
-                        <button id="1.4" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios1/parte4/parte4.html">4</a>
-                        </button>
-                        <button id="1.5" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios1/parte5/parte5.html">5</a>
-                        </button>
-                    </div>
+        <p class="texto">Treine e teste seus conhecimentos sobre as Linguagem de Consulta 
+            Estruturadas(SQLs) em 2 categorias de desafios com 5 questões cada.</p>
+
+        <section class="exercicios">
+            <div class="cartao">
+                <div class="cartao__cabecalho">
+                    <h2 class="cartao__cabecalho-titulo">Exercício 1 — ORGANIZE OS BLOCOS
+                        <span id="exercicio1-completo" class="material-icons-outlined"></span>
+                    </h2>
+                </div>
+                <div class="cartao__corpo">
+                    <p class="cartao-objetivo">Dada uma sequência de blocos encontre e corrija o(s) erro(s) 
+                        presentes para que o SQL seja corretamente executado como pedido.</p>
+                    <div class="cartao-questoes">
+                        <p class="cartao-titulo">
+                            Questões
+                        </p>
+                        <div class="cartao-botoes">
+                            <button id="11" class="cartao-botao">1</button>
+                            <button id="12" class="cartao-botao">2</button>
+                            <button id="13" class="cartao-botao">3</button>
+                            <button id="14" class="cartao-botao">4</button>
+                            <button id="15" class="cartao-botao">5</button>
+                        </div>
+                    </div> 
                 </div>
             </div>
-            <div id="2" class="col">
-                <div class="card bg-dark text-center">
-                    <div class="card-header">MONTE O SELECT</div>
-                    <div class="card-body">
-                        <p class="card-text">Objetivo: dada a construção de um banco monte o comando SELECT ideal para apresentar os dados pedidos.</p>
-                        <button id="2.1" class="btn btn-primary btn-sm">
-                            <a class="nav-link color" href="./execicios2/parte1/parte1.html">1</a>
-                        </button>
-                        <button id="2.2" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios2/parte2/parte2.html">2</a>
-                        </button>
-                        <button id="2.3" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios2/parte3/parte3.html">3</a>
-                        </button>
-                        <button id="2.4" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios2/parte4/parte4.html">4</a>
-                        </button>
-                        <button id="2.5" class="btn btn-secondary btn-sm disabled">
-                            <a class="nav-link color" href="./execicios2/parte5/parte5.html">5</a>
-                        </button>
-                    </div>
+
+            <div class="cartao">
+                <div class="cartao__cabecalho">
+                    <h2 class="cartao__cabecalho-titulo">Exercício 2 — MONTE O SELECT 
+                        <span id="exercicio2-completo" class="material-icons-outlined"></span>
+                    </h2>
+                </div>
+                <div class="cartao__corpo">
+                    <p class="cartao-objetivo">Dado um banco de dados monte, a partir dos blocos fornecidos, o comando SELECT ideal para 
+                        apresentar os dados pedidos.</p>
+                    <div class="cartao-questoes">
+                        <p class="cartao-titulo">
+                            Questões
+                            <span id="exercicio1-completo" class="material-icons-outlined"></span>
+                        </p>
+                        <div class="cartao-botoes">
+                            <button id="21" class="cartao-botao">1</button>
+                            <button id="22" class="cartao-botao">2</button>
+                            <button id="23" class="cartao-botao">3</button>
+                            <button id="24" class="cartao-botao">4</button>
+                            <button id="25" class="cartao-botao">5</button>
+                        </div>
+                    </div> 
                 </div>
             </div>
-        </div>
-    </div>
+
+            <p class="aviso">RECOMENTADA-SE A REALIZAÇÃO DOS EXERCÍCIOS EM UM DESKTOP</p>
+        </section>
+    </main>
 </body>
 
 <script src="./estudo.js"></script>

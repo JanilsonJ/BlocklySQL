@@ -1,0 +1,101 @@
+
+/***********************************************************************************************/
+/* Menu */
+
+.menu {
+    font-family: 'Fredericka the Great', cursive;
+    text-transform: uppercase;
+    
+    background-color: #00000f;
+    background-image: url("https://www.transparenttextures.com/patterns/escheresque-dark.png");
+
+    height: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0px 3px 10px 2px #616161;
+}
+
+.menu__nome-site {
+    color: #FDFDFD;
+    font-size: 1.20rem;
+    margin-left: 25px;
+}
+
+.menu__items {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu__item {
+    color: #FDFDFD3D;
+    font-size: 0.9rem;
+
+    margin-right: 15px;
+
+    display: flex;
+    align-items: center;
+}
+
+.menu__item:hover {
+    border-bottom: 1px solid #95999C;
+    color: #FDFDFD;
+}
+
+.icone-casa {
+    color: rgb(187, 48, 48);
+    margin-right: 4px;
+}
+
+.icone-exercicio {
+    color: rgb(223, 147, 35);
+    margin-right: 4px;
+}
+
+.icone-ajuda {
+    color: rgb(15, 194, 194);
+    margin-right: 4px;
+}
+
+.ativo {
+    color: #FDFDFD;
+    border-bottom: 1px solid #95999C;
+}
+
+.menu__logo-blockly{
+    background-image: url(../imagens/logo_blockly.png);
+    width: 55px;
+    margin-right: 25px;
+}
+
+@media screen and (max-width: 630px) {
+    .menu{
+        justify-content: space-between;
+    }
+
+    .menu-texto{
+        display: none;
+    }
+
+    .menu__logo-blockly, .menu__item{
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .menu__logo-blockly{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .menu{
+        justify-content: center
+    }
+
+    .menu__nome-site{
+        display: none;
+    }
+}

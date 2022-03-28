@@ -1,0 +1,170 @@
+/***********************************************************************************************/
+/* Body */
+
+.corpo {
+    font-family: 'Montserrat', sans-serif;
+    color: #FDFDFD;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: calc(100vh - 30px);
+
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 65px 65px auto;
+}
+
+.titulo {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 2rem;
+
+    grid-column: span 2;
+
+    align-self: center;
+    text-align: center;
+}
+
+.color {
+    color: aliceblue !important;
+}
+
+/***********************************************************************************************/
+/* Texto */
+
+.texto {
+    grid-column: span 2;
+
+    align-self: center;
+    text-align: center;
+}
+
+/***********************************************************************************************/
+/* Cards */
+.exercicios{
+    grid-column: span 2;
+    grid-row: 3;
+
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+}
+
+.cartao {
+    background-color: rgb(185, 184, 197);
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    
+    width: 40%;
+    
+    border-radius: 10px;
+}
+
+.cartao__cabecalho {
+    background-color: rgb(226, 151, 38);
+    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+    
+    color: #222222;
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cartao__cabecalho-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.cartao__corpo {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 1.6rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cartao-objetivo {
+    text-align: justify;
+    text-shadow: 6px 4px 6px #222222;
+    
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.cartao-titulo {
+    color: #222222;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.cartao-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cartao-botao {
+    background-color: #222222;
+    color: #FDFDFD;
+
+    padding: 15px;
+    box-sizing: border-box;
+
+    margin: 10px;
+
+    border-radius: 10px;
+
+    box-shadow: 3px 3px 11px 1px #222222;
+
+    transition: .5s;    
+
+    cursor: pointer;
+}
+
+.cartao-botao-hover:hover{
+    box-shadow: 0px 0px 11px 1px #FDFDFD;
+}
+
+.aviso {
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .corpo {
+        height: calc(100% + 40px);
+    }
+    
+    .exercicios {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cartao {
+        width: 90%;
+        margin-top: 15px;
+
+        align-self: center;
+    }
+
+    .aviso {
+        display: block;
+
+        text-align: center;
+        font-weight: bolder;
+
+        padding: 10px;
+    }
+}

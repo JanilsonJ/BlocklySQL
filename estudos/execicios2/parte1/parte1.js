@@ -1,10 +1,9 @@
 var blocklyDiv = document.getElementById('blocklyDiv');
 var workspace = Blockly.inject(blocklyDiv, {
-    horizontalLayout: true,
     collapse: true,
     trashcan: true,
     zoom: {
-        startScale: 0.7
+        startScale: 0.9
     }
 });
 workspace.addChangeListener(Blockly.Events.disableOrphans);
@@ -76,6 +75,7 @@ function mirrorEvent(event) {
     }
 
     var code = Blockly.Lua.workspaceToCode(this.workspace);
+    
     code = aplicarCor(code)
     document.getElementById("Codigo").innerHTML = code;
 
@@ -94,6 +94,8 @@ function mirrorEvent(event) {
         }
     }
 }
+
+document.getElementById(`botao_enviar-resposta`).addEventListener("click", verificarResposta)
 
 function verificarResposta() {
     var respostas = [
@@ -125,18 +127,36 @@ function verificarResposta() {
     } catch(e) {}
 
     if (isContainedIn(respostas, tabela)) {
-        document.getElementById('respostaCorreta').style.display = 'block'
-        document.getElementById('respostaErrada').style.display = 'none'
+        document.querySelector('.background').style.setProperty('right', '0');
 
         let prog = JSON.parse(localStorage.getItem('progressoEstudos'));
         if (prog[1] < 2)
             localStorage.setItem('progressoEstudos', JSON.stringify([prog[0], 2, prog[2], prog[3]]));
 
     } else {
-        document.getElementById('respostaErrada').style.display = 'block'
-        document.getElementById('respostaCorreta').style.display = 'none'
+        document.querySelector('.alerta-aviso').style.setProperty('right', '15px');
+        
+        setTimeout(function(){
+            document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+        }, 3000);
     }
 }
+
+document.getElementById(`botao_proximo-exercicio`).addEventListener("click", () => {
+    window.location.href = "../parte2/parte2.html";
+})
+
+document.getElementById(`fecharAviso`).addEventListener("click", () => {
+    document.querySelector('.alerta-aviso').style.setProperty('right', '-1000px');
+})
+
+document.getElementById(`fecharCartaoResposta`).addEventListener("click", () => {
+    document.querySelector('.background').style.setProperty('right', '-100vw');
+})
+
+document.querySelector('.background').addEventListener("click", () => {
+    document.querySelector('.background').style.setProperty('right', '-100vw');
+})
 
 function isContainedIn(a, b) {
     if (typeof a != typeof b)

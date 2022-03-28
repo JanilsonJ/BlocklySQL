@@ -1,0 +1,37 @@
+/******************************************************************************************************************************************************************** */
+/*CORES CÓDIGO*/
+.color_create_db{
+    color: rgb(91, 165, 91);
+}
+
+.color_create_table{
+    color: rgb(81, 99, 155);
+}
+
+.color_var{
+    color: rgb(67, 190, 199);
+}
+
+.color_insert{
+    color: rgb(147, 91, 165);
+}
+
+.color_update{
+    color: rgb(165, 165, 91);
+}
+
+.color_alter_table{
+    color: rgb(165, 128, 91);
+}
+
+.color_delete_from{
+    color: rgb(165, 91, 91);
+}
+
+.color_drop_table{
+    color: rgb(165, 91, 109);
+}
+
+.color_select{
+    color: rgb(91, 165, 147);
+}
