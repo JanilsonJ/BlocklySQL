@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/imagens/blockly_sql.png">
+    <link rel="shortcut icon" href="./assets/imagens/blockly_sql.png">
     <title>BlocklySQL | Instruções</title>
 
     <!-- Estilização da página -->
-    <link rel="stylesheet" href="instrucoes.css">
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/cabecalho.css">
-    <link rel="stylesheet" href="../assets/css/corpo.css">
-    <link rel="stylesheet" href="../assets/css/cor-codigo.css">
-    <link rel="stylesheet" href="../assets/css/cor-background.css">
+    <link rel="stylesheet" href="./assets/css/instrucoes.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/cabecalho.css">
+    <link rel="stylesheet" href="./assets/css/corpo.css">
+    <link rel="stylesheet" href="./assets/css/cor-codigo.css">
+    <link rel="stylesheet" href="./assets/css/cor-background.css">
 
     <!-- Google Font - Open Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -28,15 +28,15 @@
 
 <body>
     <header class="menu">
-        <a class="menu__nome-site" href="../index.html" title="Página inicial">BlocklySQL</a>
+        <a class="menu__nome-site" href="./index.html" title="Página inicial">BlocklySQL</a>
         
         <nav class="menu__items">
-            <a class="menu__item" href="../index.html">
+            <a class="menu__item" href="./index.html">
                 <span class="icone-casa material-icons-outlined">home</span>
                 <p class="menu-texto">Início</p>
             </a>
                 
-            <a class="menu__item" href="../estudos/estudo.html">
+            <a class="menu__item" href="./estudo.html">
                 <span class="icone-exercicio material-icons-outlined">edit_note</span>
                 <p class="menu-texto">Exercícios</p>
                 
@@ -49,7 +49,7 @@
         </nav>
 
         <a href="https://developers.google.com/blockly" target="_blank" title="Blockly Site">
-            <img class="menu__logo-blockly" src="../assets/imagens/logo_blockly.png">
+            <img class="menu__logo-blockly" alt="Logo Blockly" src="./assets/imagens/logo_blockly.png">
         </a>
     </header>
 
@@ -67,8 +67,10 @@
                 <p id="menuDelete" class="atalho-blocos__botao color_delete_from">Delete From</p>
             </div>
         </section>
-
+                
         <section class="conteudo">
+            <h1 class="titulo">Entenda os blocos e suas funcionalidades</h1>
+
             <div id="CreateDB" class="cartao">
                 <div class="cartao__cabecalho bg_create_db">
                     <h3 class="cartao__cabecalho__titulo">Create Database</h3>
@@ -78,7 +80,7 @@
                     <p class="cartao__conteudo__descricao">Obrigatoriamente o primeiro bloco da pilha. Conecta-se 
                         ao banco de dados informado. Todos o blocos conectados a esse realizarão suas ações neste banco.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/create_db.png" alt="">
+                        <img src="./assets/imagens/create_db.png" alt="">
                     </div>
                 </div>
             </div>
@@ -94,7 +96,7 @@
                         bloco possuí 1 botão para a adição da mesma e mais 2 botões para a definição das características 
                         PRIMARY KEY e FOREIGN KEY.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/create_table.png" alt="">
+                        <img src="./assets/imagens/create_table.png" alt="">
                     </div>
                 </div>
                 <p class="cartao__conteudo__divisor color_create_table">======= Blocos Relacionados =======</p>
@@ -102,14 +104,14 @@
                     <p class="cartao__conteudo__descricao">Bloco responsável pela adição de novas variáveis(colunas) ao 
                         bloco Create Table. Deve-se informar o nome da variável, seu tipo e atributo.
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/create_table2.png" alt="">
+                        <img src="./assets/imagens/create_table2.png" alt="">
                     </div>
                 </div>
                 <div class="cartao__conteudo">
                     <p class="cartao__conteudo__descricao">Bloco responsável pela definição da característica PRIMARY KEY 
                         a uma variável. Deve-se informar o nome da variável já definida no bloco.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/create_table3.png" alt="">
+                        <img src="./assets/imagens/create_table3.png" alt="">
                     </div>
                 </div>
                 <div class="cartao__conteudo">
@@ -117,7 +119,7 @@
                         a uma variável. Deve-se informar o nome da variável já definida no bloco, a tabela a ser 
                         referenciada e o identificador a ser usado na relação.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/create_table4.png" alt="">
+                        <img src="./assets/imagens/create_table4.png" alt="">
                     </div>
                 </div>
             </div>
@@ -132,7 +134,7 @@
                         o nome da tabela desejada, ação a ser realizada, nome da variável a ser modificada e o tipo da 
                         variável caso necessário.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/alter_table.png" alt="">
+                        <img src="./assets/imagens/alter_table.png" alt="">
                     </div>
                 </div>
             </div>
@@ -147,7 +149,7 @@
                         Deve-se informa o nome da tabela desejada.
                     </p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/drop_table.png" alt="">
+                        <img src="./assets/imagens/drop_table.png" alt="">
                     </div>
                 </div>
             </div>
@@ -163,7 +165,7 @@
                         quais os dados a serem inseridos. Possuí um botão que adiciona um campo para a inserção do valor 
                         desejado e outro botão para inserir algum outro valor padrão.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/insert_into.png" alt="">
+                        <img src="./assets/imagens/insert_into.png" alt="">
                     </div>
                 </div>
                 <p class="cartao__conteudo__divisor color_insert">======= Blocos Relacionados =======</p>
@@ -171,14 +173,14 @@
                     <p class="cartao__conteudo__descricao">Bloco responsável por inserir novos dados a uma 
                         tabela no bloco INSERT INTO. Deve-se passar o valor do dado.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/insert_into2.png" alt="">
+                        <img src="./assets/imagens/insert_into2.png" alt="">
                     </div>
                 </div>
                 <div class="cartao__conteudo">
                     <p class="cartao__conteudo__descricao">Bloco responsável por inserir dados padrões a uma 
                         tabela no bloco INSERT INTO. Deve-se selecionar o valor do dado.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/insert_into3.png" alt="">
+                        <img src="./assets/imagens/insert_into3.png" alt="">
                     </div>
                 </div>
             </div>
@@ -193,7 +195,7 @@
                         em uma tabela. Deve-se informar o nome da tabela em que o dado esta presente e a condição de 
                         alteração. Possuí um botão para a adição dos blocos de variáveis.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/update_table.png" alt="">
+                        <img src="./assets/imagens/update_table.png" alt="">
                     </div>
                 </div>
                 <p class="cartao__conteudo__divisor color_update">======= Blocos Relacionados =======</p>
@@ -202,7 +204,7 @@
                         o valor alterado e seu novo valor no bloco UPDATE. Deve-se passar o nome da variável e 
                         seu novo valor.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/update_table2.png" alt="">
+                        <img src="./assets/imagens/update_table2.png" alt="">
                     </div>
                 </div>
             </div>
@@ -216,7 +218,7 @@
                     <p class="cartao__conteudo__descricao">Bloco responsável pela seleção de dados em uma tabela. 
                         Possuí um campo de seleção e um botão que adiciona o bloco correnspondente ao campo.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/select1.png" alt="">
+                        <img src="./assets/imagens/select1.png" alt="">
                     </div>
                 </div>
                 <p class="cartao__conteudo__divisor color_select">======= Blocos Relacionados =======</p>
@@ -225,14 +227,14 @@
                         pesquisa no bloco SELECT. Deve-se informar os dados que serão pesquisados ou se apresentara
                         todos os dados.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/select_coluna.png" alt="">
+                        <img src="./assets/imagens/select_coluna.png" alt="">
                     </div>
                 </div>
                 <div class="cartao__conteudo">
                     <p class="cartao__conteudo__descricao">Determina a tabela que será pesquisada no bloco SELECT. 
                         Deve-se informar o nome da tabela desejada.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/select_tabela.png" alt="">
+                        <img src="./assets/imagens/select_tabela.png" alt="">
                     </div>
                 </div>
                 <div class="cartao__conteudo">
@@ -240,21 +242,21 @@
                         Pode ser definida entre inner, left, right e full join. Deve-se informar a qual tabela terá a 
                         união e os dados semelhantes as tabelas.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/select_interacao.png" alt="">
+                        <img src="./assets/imagens/select_interacao.png" alt="">
                     </div>
                 </div>
                 <div class="cartao__conteudo">
                     <p class="cartao__conteudo__descricao">Cria uma restrição de pesquisa no bloco SELECT. Deve-se informar 
                         o nome da variável, o operador e sua restrição.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/select_restricao.png" alt="">
+                        <img src="./assets/imagens/select_restricao.png" alt="">
                     </div>
                 </div>
                 <div class="cartao__conteudo">
                     <p class="cartao__conteudo__descricao">Altera a ordem de apresentação dos dados do bloco SELECT. 
                         Deve-se informar a variável e sua ordem de apresentação.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/select_ordenacao.png" alt="">
+                        <img src="./assets/imagens/select_ordenacao.png" alt="">
                     </div>
                 </div>
             </div>
@@ -267,7 +269,7 @@
                 <div class="cartao__conteudo">
                     <p class="cartao__conteudo__descricao">Bloco responsável por excluir um dado inserido a uma tabela. Deve-se passar o nome da tabela e a restrição de exclusão do dado.</p>
                     <div class="cartao__conteudo__imagem">
-                        <img src="../assets/imagens/delete_from.png" alt="">
+                        <img src="./assets/imagens/delete_from.png" alt="">
                     </div>
                 </div>
             </div>

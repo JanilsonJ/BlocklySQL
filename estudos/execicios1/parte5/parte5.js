@@ -97,7 +97,7 @@ VALUES (NULL, "Anderson Joaquim Lima", "M", 25, "109.419.057-80", "Advogado");`
 }
 
 document.getElementById(`botao_proximo-exercicio`).addEventListener("click", () => {
-    window.location.href = "../../estudo.html";
+    window.location.href = "../../../estudo.html";
 })
 
 document.getElementById(`fecharAviso`).addEventListener("click", () => {

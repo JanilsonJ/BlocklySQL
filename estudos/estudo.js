@@ -5,7 +5,7 @@ if (!localStorage['progressoEstudos'])
 for (let exercicio = 1; exercicio < 3; exercicio++) {
     for (let questao = 1; questao < 6; questao++) {
         document.getElementById(`${exercicio}${questao}`).addEventListener("click", () => {
-            window.location.href = `execicios${exercicio}/parte${questao}/parte${questao}.html`;
+            window.location.href = `./estudos/execicios${exercicio}/parte${questao}/parte${questao}.html`;
         })
     }
 }

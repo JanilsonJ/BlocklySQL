@@ -221,7 +221,7 @@ function verificarResposta() {
 }
 
 document.getElementById(`botao_proximo-exercicio`).addEventListener("click", () => {
-    window.location.href = "../../estudo.html";
+    window.location.href = "../../../estudo.html";
 })
 
 document.getElementById(`fecharAviso`).addEventListener("click", () => {

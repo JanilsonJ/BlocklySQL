@@ -77,6 +77,14 @@
     box-sizing: border-box;
 }
 
+.titulo {
+    font-family: 'Fredericka the Great', cursive;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
 .cartao {
     background-color: #ddd7d7;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
