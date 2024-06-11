@@ -5,7 +5,7 @@ document.getElementById('alertaMensagemInfo').innerHTML = 'Em caso de erro apert
 setTimeout(function(){
     document.querySelector('.alerta-copia').style.setProperty('right', '-1000px');
 }, 3000);
-        
+
 
 var blocklyDiv = document.getElementById('blocklyDiv');
 var workspace = Blockly.inject(blocklyDiv, {
@@ -108,7 +108,10 @@ function runCode() {
         try {
             eval(code);
             document.getElementById('tabelaSelect').innerHTML = '';
-        } catch (e) { console.log(e) }
+        } catch (e) {
+            alert('Navegador sem suporte para a execução do banco WebbSQL.')
+            console.log(e);
+        }
     }
 }
 
@@ -119,9 +122,9 @@ function copyCode() {
     window.getSelection().addRange(range); // to select text
     document.execCommand("copy");
     window.getSelection().removeAllRanges();// to deselect
-    
+
     closeAlerts()
-    
+
     // Configuração o alert
     document.querySelector('.alerta-copia').style.setProperty('right', '15px');
     document.getElementById('alertaMensagemInfo').innerHTML = 'Código ' + document.getElementById("linguagens").value + ' copiado para área de tranferência.';
@@ -147,7 +150,7 @@ function mudarTema() {
         codigo.remove('codigo-tema-escuro');
 
         tema.style.setProperty('--backgorund-tema', 'rgb(230, 230, 230)'); //Muda a cor da Workspace
-        
+
         btn.style.setProperty('color', 'rgb(75, 69, 69)'); //Muda a cor da área de código
         btn.innerHTML = 'dark_mode'
     } else{
@@ -182,7 +185,7 @@ function aplicarColor(code){
     code = code.replace(/REFERENCES/g, "<span class='color_var'>REFERENCES</span>");
     code = code.replace(/UNIQUE/g, "<span class='color_var'>UNIQUE</span>");
     code = code.replace(/AUTO_INCREMENT/g, "<span class='color_var'>AUTO_INCREMENT</span>");
-    
+
     code = code.replace(/ASC/g, "<span class='color_var'>ASC</span>");
     code = code.replace(/DESC/g, "<span class='color_var'>DESC</span>");
     code = code.replace(/AND/g, "<span class='color_var'>AND</span>");
@@ -193,7 +196,7 @@ function aplicarColor(code){
     code = code.replace(/DISTINCT/g, "<span class='color_var'>DISTINCT</span>");
     code = code.replace(/SET/g, "<span class='color_var'>SET</span>");
     code = code.replace(/VALUES/g, "<span class='color_var'>VALUES</span>");
-    
+
     code = code.replace(/FROM/g, "<span class='color_select'>FROM</span>");
     code = code.replace(/WHERE/g, "<span class='color_select'>WHERE</span>");
     code = code.replace(/ORDER BY/g, "<span class='color_select'>ORDER BY</span>");
@@ -205,7 +208,7 @@ function aplicarColor(code){
 
     code = code.replace(/%/g, "<span style='color: rgb(197, 147, 97)'>%</span>");
     code = code.replace(/"/g, "<span style='color: rgb(197, 147, 97)'>" + '"' + "</span>");
-    
+
     code = code.replace(/ > /g, "<span style='color: rgb(203, 107, 26)'> > </span>");
     code = code.replace(/ >= /g, "<span style='color: rgb(203, 107, 26)'> >= </span>");
     code = code.replace(/ < /g, "<span style='color: rgb(203, 107, 26)'> < </span>");

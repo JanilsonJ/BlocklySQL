@@ -32,17 +32,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Biblioteca Blockly -->
-    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly@8.0.5/blockly.min.js"></script>
 
     <!-- Blocos Personalisados -->
     <script src="./Blocos/customBlocks.js"></script>
 
     <!-- Gerador MySQL -->
-    <script src="https://unpkg.com/blockly/lua_compressed.js"></script>
+    <script src="https://unpkg.com/blockly@8.0.5/lua_compressed.js"></script>
     <script src="./Blocos/geradorMySQL.js"></script>
 
     <!-- Gerador Web SQL -->
-    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    <script src="https://unpkg.com/blockly@8.0.5/javascript_compressed.js"></script>
     <script src="./Blocos/geradorWebSQL.js"></script>
 
     <!-- GOOGLE ADSENSE-->
@@ -53,19 +53,19 @@
 <body>
     <header class="menu">
         <a class="menu__nome-site" href="index.html" title="Página inicial">BlocklySQL</a>
-        
+
         <nav class="menu__items">
             <a class="menu__item ativo" href="./index.html">
                 <span class="icone-casa material-icons-outlined">home</span>
                 <p class="menu-texto">Início</p>
             </a>
-                
+
             <a class="menu__item" href="estudo.html">
                 <span class="icone-exercicio material-icons-outlined">edit_note</span>
                 <p class="menu-texto">Exercícios</p>
-                
+
             </a>
-            
+
             <a class="menu__item" href="instrucoes.html">
                 <span class="icone-ajuda material-icons-outlined">info</span>
                 <p class="menu-texto">Instrucoes</p>
@@ -87,6 +87,7 @@
         <section class="acoes">
             <div class="selecionar-linguagem">
                 <span class="selecionar-linguagem__titulo acao-texto" >Linguagem:</span>
+                <label for="linguagens"></label>
                 <select id="linguagens" class="selecionar-linguagem__opcao" onchange="mirrorEvent();">
                     <option class="selecionar-linguagem__opcao-dropdown" value="MySQL">MySQL</option>
                     <option class="selecionar-linguagem__opcao-dropdown" value="WebSQL">WebSQL</option>
@@ -172,7 +173,7 @@
                     <next>
                         <block type="table_var">
                             <next>
-                                <block type="table_var">
+                                <block type="table_var"></block>
                             </next>
                         </block>
                     </next>
